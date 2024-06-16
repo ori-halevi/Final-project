@@ -8,15 +8,16 @@
 }
 
 .menu button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 20px 40px;
+    font-size: 26px;
     cursor: pointer;
     border: none;
 }
 
 .menu h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 50px;
+    justify-content: center;
 }
 
 .tooltip-container {
@@ -24,7 +25,7 @@
     display: inline-block;
     cursor: pointer;
     margin: 50px;
-    font-size: 18px;
+    font-size: 30px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -61,12 +62,12 @@
     margin: 5px 0;
 }
 
-.tooltip ul li a {
+.tooltip a {
     color: #fff;
     text-decoration: none;
 }
 
-.tooltip ul li a:hover {
+.tooltip a:hover {
     text-decoration: underline;
 }
 .search-container input {
@@ -80,7 +81,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 25px;
+    padding: 100px 380px;
     font-size: 16px; 
     cursor: pointer;
 }
@@ -114,4 +115,8 @@
     background-position: center;
     height: 450px;
     position: relative;
+}
+.background-section{
+    background-color: rgb(122, 223, 135);
+    margin: auto;
 }
