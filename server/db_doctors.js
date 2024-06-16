@@ -40,23 +40,23 @@ async function createUser(newUser) {
 
 async function updateDoctorName(doctorId, newName) {
   const result = await Doctor.updateOne(
-    { _id: docId },
+    { _id: doctorId },
     { $set: { name: newName } }
   );
   return result.modifiedCount === 1;
 }
 
-async function deleteUser(userId) {
-  const result = await User.deleteOne({ _id: userId });
+async function deleteDoctor(userId) {
+  const result = await User.deleteOne({ _id: doctorId });
   return result.deletedCount === 1;
 }
 
 main();
 
 module.exports = {
-  getUsers,
-  getUserById,
-  createUser,
+  getDoctors,
+  getDoctorById,
+  createDoctor,
   updateUserName,
   deleteUser,
 };
