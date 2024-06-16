@@ -46,8 +46,8 @@ async function updateDoctorName(doctorId, newName) {
   return result.modifiedCount === 1;
 }
 
-async function deleteDoctor(userId) {
-  const result = await User.deleteOne({ _id: doctorId });
+async function deleteDoctor(doctorId) {
+  const result = await Doctor.deleteOne({ _id: doctorId });
   return result.deletedCount === 1;
 }
 
@@ -57,6 +57,6 @@ module.exports = {
   getDoctors,
   getDoctorById,
   createDoctor,
-  updateUserName,
-  deleteUser,
+  updateDoctorName,
+  deleteDoctor,
 };
