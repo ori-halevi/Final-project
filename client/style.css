@@ -1,0 +1,103 @@
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 10px 20px; 
+    background-color: #f8f8f8;  
+    border-bottom: 1px solid #ddd;
+}
+
+.menu button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.menu h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 50px;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    white-space: nowrap; 
+    z-index: 1;
+    margin-bottom: 5px;
+}
+
+.tooltip-container:hover .tooltip {
+    display: block;
+}
+.tooltip ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tooltip ul li {
+    margin: 5px 0;
+}
+
+.tooltip ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tooltip ul li a:hover {
+    text-decoration: underline;
+}
+.search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.search-history {
+    position: absolute;
+    top: 40px;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-history div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-history div:hover {
+    background-color: #f0f0f0;
+}
+.
