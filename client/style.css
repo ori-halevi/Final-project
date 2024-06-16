@@ -4,13 +4,14 @@
     justify-content: space-between; 
     padding: 10px 20px; 
     background-color: #f8f8f8;  
-    border-bottom: 1px solid #ddd;
+    border: none;
 }
 
 .menu button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    border: none;
 }
 
 .menu h1 {
@@ -28,12 +29,13 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
+    border: none;
 }
 
 .tooltip {
     display: none;
     position: absolute;
-    bottom: 100%;
+    bottom: auto;
     left: 50%;
     transform: translateX(-50%);
     background-color: #333;
@@ -74,11 +76,17 @@
     border-radius: 4px;
 }
 
-.search-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-left: 10px;
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+    font-size: 16px; 
     cursor: pointer;
+}
+.search-container button {
+    padding: 11.5px;
+    border: none;
 }
 
 .search-history {
@@ -93,11 +101,17 @@
 }
 
 .search-history div {
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
 }
 
 .search-history div:hover {
     background-color: #f0f0f0;
 }
-.
+.background-image-section {
+    background-image: url('./תמונת\ רקע.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 450px;
+    position: relative;
+}
