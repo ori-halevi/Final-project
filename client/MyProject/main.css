@@ -1,0 +1,133 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    direction: rtl;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-color: #0062cc;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.logo img {
+    height: 50px;
+    margin-left: 20px;
+}
+
+.login-button button {
+    background-color: #ffffff;
+    color: #0062cc;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.login-button button:hover {
+    background-color: #0056b3;
+}
+
+nav {
+    background-color: #343a40;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #495057;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-box {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 500px;
+    position: relative;
+}
+
+.search-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.search-box input[type="text"], .search-box button {
+    position: relative;
+    z-index: 1;
+}
+
+.search-box input[type="text"] {
+    padding: 15px;
+    width: 70%;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-box button {
+    padding: 15px 20px;
+    background-color: #0062cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+    background-color: #0056b3;
+}
