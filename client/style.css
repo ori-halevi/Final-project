@@ -1,129 +1,124 @@
 /* Ori added */
-body { 
-    margin: 0; /* delete corners */
-    background-color: #faebd7;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+body {
+  margin: 0; /* delete corners */
+  background-color: #faebd7;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.menu{
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    padding: 10px 20px; 
-    background-color: #f8f8f8;  
-    border: none;
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border: none;
 }
 
 .menu button {
-    padding: 20px 40px;
-    font-size: 26px;
-    cursor: pointer;
-    border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
 }
 
 .menu h1 {
-    margin: 0;
-    font-size: 50px;
-    justify-content: center;
+  margin: 0;
+  font-size: 24px;
 }
 
 .tooltip-container {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    margin: 50px;
-    font-size: 30px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    border: none;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 50px;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  border: none;
 }
 
 .tooltip {
-    display: none;
-    position: absolute;
-    bottom: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 5px;
-    border-radius: 4px;
-    white-space: nowrap; 
-    z-index: 1;
-    margin-bottom: 5px;
+  display: none;
+  position: absolute;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 1;
+  margin-bottom: 5px;
 }
 
 .tooltip-container:hover .tooltip {
-    display: block;
+  display: block;
 }
 .tooltip ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .tooltip ul li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
-.tooltip a {
-    color: #fff;
-    text-decoration: none;
+.tooltip ul li a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.tooltip a:hover {
-    text-decoration: underline;
+.tooltip ul li a:hover {
+  text-decoration: underline;
 }
 .search-container input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 380px;
-    font-size: 16px; 
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px;
+  font-size: 16px;
+  cursor: pointer;
 }
 .search-container button {
-    padding: 11.5px;
-    border: none;
+  padding: 11.5px;
+  border: none;
 }
 
 .search-history {
-    position: absolute;
-    top: 40px;
-    background-color: white;
-    border: 1px solid #ccc;
-    width: 100%;
-    max-height: 150px;
-    overflow-y: auto;
-    display: none;
+  position: absolute;
+  top: 40px;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  display: none;
 }
 
 .search-history div {
-    padding: 20px;
-    cursor: pointer;
+  padding: 20px;
+  cursor: pointer;
 }
 
 .search-history div:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 .background-image-section {
-    background-image: url('./תמונת\ רקע.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 450px;
-    position: relative;
-}
-.background-section{
-    background-color: rgb(122, 223, 135);
-    margin: auto;
+  background-image: url("./תמונת\ רקע.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  position: relative;
 }
