@@ -1,0 +1,36 @@
+{
+  "full_name": "Dr. Rachel Levi",
+  "specialty": "Clinical Psychology",
+  "working_hours": {
+    "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+    "hours": "09:00 AM - 05:00 PM"
+  },
+  
+  "contact_information": {
+    "phone": "052-1234567",
+    "email": "drlevi@example.com",
+    "address": {
+      "city": "Tel Aviv",
+      "street": "10 Herzl Street",
+      "zipcode": "12345"
+    }
+  },
+  "additional_details": {
+    "languages": ["Hebrew", "English"],
+    "education": [
+      {
+        "degree": "Doctorate in Clinical Psychology",
+        "university": "Tel Aviv University",
+        "year": 2005
+      },
+      {
+        "degree": "Master's in Psychology",
+        "university": "University of Haifa",
+        "year": 2000
+      }
+    ],
+    "certifications": ["Licensed member of the Psychologists' Association"],
+    "experience": "Dr. Levi has extensive experience working with children and adults in various clinical psychology and mental health therapy settings. Her focus includes cognitive-behavioral therapy, resilience, and depression treatment."
+  },
+  "appointments": []
+}

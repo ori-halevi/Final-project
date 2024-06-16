@@ -1,0 +1,36 @@
+[
+  {
+    "full_name": "Yossi Cohen",
+    "id_number": "123456789",
+    "payment_method": "Credit Card",
+    "health_insurance": "Maccabi",
+    "age": 35,
+    "contact_information": {
+      "phone": "050-1234567",
+      "email": "yossi@example.com"
+    },
+    "appointments": []
+  },
+  {
+    "full_name": "Rachel Levi",
+    "id_number": "987654321",
+    "payment_method": "Direct Debit",
+    "health_insurance": "Clalit",
+    "age": 42,
+    "contact_information": {
+      "phone": "052-7654321",
+      "email": "rachel@example.com"
+    }
+  },
+  {
+    "full_name": "David Israeli",
+    "id_number": "123123123",
+    "payment_method": "PayPal",
+    "health_insurance": "Meuhedet",
+    "age": 29,
+    "contact_information": {
+      "phone": "053-9876543",
+      "email": "david@example.com"
+    }
+  }
+]
