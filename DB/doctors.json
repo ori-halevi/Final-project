@@ -1,36 +1,151 @@
-{
-  "full_name": "Dr. Rachel Levi",
-  "specialty": "Clinical Psychology",
-  "working_time": {
-    "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-    "hours": { "from": "09:00", "to": "17:30" }
+[
+  {
+    "full_name": "Dr. Rachel Levi",
+    "specialty": "Clinical Psychology",
+    "working_time": {
+      "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      "hours": { "from": "09:00", "to": "17:30" }
+    },
+
+    "contact_information": {
+      "phone": "052-1234567",
+      "email": "drlevi@example.com",
+      "address": {
+        "city": "Tel Aviv",
+        "street": "10 Herzl Street",
+        "zipcode": "12345"
+      }
+    },
+    "additional_details": {
+      "languages": ["Hebrew", "English"],
+      "education": [
+        {
+          "degree": "Doctorate in Clinical Psychology",
+          "university": "Tel Aviv University",
+          "year": 2005
+        },
+        {
+          "degree": "Master's in Psychology",
+          "university": "University of Haifa",
+          "year": 2000
+        }
+      ],
+      "certifications": ["Licensed member of the Psychologists' Association"],
+      "experience": "Dr. Levi has extensive experience working with children and adults in various clinical psychology and mental health therapy settings. Her focus includes cognitive-behavioral therapy, resilience, and depression treatment."
+    },
+    "appointments": []
   },
 
-  "contact_information": {
-    "phone": "052-1234567",
-    "email": "drlevi@example.com",
-    "address": {
-      "city": "Tel Aviv",
-      "street": "10 Herzl Street",
-      "zipcode": "12345"
-    }
-  },
-  "additional_details": {
-    "languages": ["Hebrew", "English"],
-    "education": [
-      {
-        "degree": "Doctorate in Clinical Psychology",
-        "university": "Tel Aviv University",
-        "year": 2005
-      },
-      {
-        "degree": "Master's in Psychology",
-        "university": "University of Haifa",
-        "year": 2000
+  {
+    "full_name": "Dr. David Cohen",
+    "specialty": "Psychiatry",
+    "working_time": {
+      "days": ["Sunday", "Tuesday", "Wednesday", "Friday"],
+      "hours": { "from": "08:30", "to": "16:00" }
+    },
+
+    "contact_information": {
+      "phone": "050-9876543",
+      "email": "drcohen@example.com",
+      "address": {
+        "city": "Jerusalem",
+        "street": "5 Ben Yehuda Street",
+        "zipcode": "67890"
       }
-    ],
-    "certifications": ["Licensed member of the Psychologists' Association"],
-    "experience": "Dr. Levi has extensive experience working with children and adults in various clinical psychology and mental health therapy settings. Her focus includes cognitive-behavioral therapy, resilience, and depression treatment."
+    },
+    "additional_details": {
+      "languages": ["Hebrew", "English", "Russian"],
+      "education": [
+        {
+          "degree": "Doctorate in Psychiatry",
+          "university": "Hebrew University of Jerusalem",
+          "year": 2008
+        },
+        {
+          "degree": "Bachelor's in Medicine",
+          "university": "Tel Aviv University",
+          "year": 2003
+        }
+      ],
+      "certifications": ["Board-certified in Psychiatry"],
+      "experience": "Dr. Cohen has over 15 years of experience in psychiatric care, specializing in anxiety disorders, bipolar disorder, and psychopharmacology."
+    },
+    "appointments": []
   },
-  "appointments": []
-}
+
+  {
+    "full_name": "Dr. Miriam Rosen",
+    "specialty": "Child and Adolescent Psychiatry",
+    "working_time": {
+      "days": ["Monday", "Wednesday", "Thursday"],
+      "hours": { "from": "10:00", "to": "18:00" }
+    },
+
+    "contact_information": {
+      "phone": "054-6543210",
+      "email": "drrosen@example.com",
+      "address": {
+        "city": "Haifa",
+        "street": "15 Carmel Avenue",
+        "zipcode": "54321"
+      }
+    },
+    "additional_details": {
+      "languages": ["Hebrew", "English", "Arabic"],
+      "education": [
+        {
+          "degree": "Doctorate in Child Psychiatry",
+          "university": "University of Haifa",
+          "year": 2010
+        },
+        {
+          "degree": "Bachelor's in Psychology",
+          "university": "Ben-Gurion University",
+          "year": 2005
+        }
+      ],
+      "certifications": [
+        "Member of the Israeli Association of Child Psychiatry"
+      ],
+      "experience": "Dr. Rosen has been practicing for over a decade, focusing on childhood developmental disorders, ADHD, and family therapy."
+    },
+    "appointments": []
+  },
+
+  {
+    "full_name": "Dr. Yael Ben-David",
+    "specialty": "Neuropsychology",
+    "working_time": {
+      "days": ["Sunday", "Tuesday", "Thursday"],
+      "hours": { "from": "09:30", "to": "17:00" }
+    },
+
+    "contact_information": {
+      "phone": "053-1239874",
+      "email": "drbendavid@example.com",
+      "address": {
+        "city": "Beersheba",
+        "street": "20 Kaplan Street",
+        "zipcode": "76543"
+      }
+    },
+    "additional_details": {
+      "languages": ["Hebrew", "English"],
+      "education": [
+        {
+          "degree": "Doctorate in Neuropsychology",
+          "university": "Ben-Gurion University",
+          "year": 2012
+        },
+        {
+          "degree": "Master's in Clinical Psychology",
+          "university": "Tel Aviv University",
+          "year": 2007
+        }
+      ],
+      "certifications": ["Certified Neuropsychologist"],
+      "experience": "Dr. Ben-David has extensive experience in cognitive assessment and rehabilitation, working with patients with brain injuries, dementia, and other neurological conditions."
+    },
+    "appointments": []
+  }
+]
