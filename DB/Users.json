@@ -22,7 +22,8 @@
     "contact_information": {
       "phone": "052-7654321",
       "email": "rachel@example.com"
-    }
+    },
+    "appointments": []
   },
   {
     "full_name": "David Israeli",
@@ -34,6 +35,7 @@
     "contact_information": {
       "phone": "053-9876543",
       "email": "david@example.com"
-    }
+    },
+    "appointments": []
   }
 ]

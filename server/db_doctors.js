@@ -23,24 +23,24 @@ const doctorSchema = new Schema({
 
 const Doctor = mongoose.model("doctors", userSchema);
 
-async function getUsers() {
+async function getDoctors() {
   const result = await Doctor.find();
   return result;
 }
 
 async function getDoctorById(doctorId) {
-  const result = await Doctor.findOne({ _id: userId });
+  const result = await Doctor.findOne({ _id: doctorId });
   return result;
 }
 
 async function createUser(newUser) {
-  const result = await User.create(newUser);
+  const result = await Doctor.create(newUser);
   return result;
 }
 
-async function updateUserName(userId, newName) {
-  const result = await User.updateOne(
-    { _id: userId },
+async function updateDoctorName(doctorId, newName) {
+  const result = await Doctor.updateOne(
+    { _id: docId },
     { $set: { name: newName } }
   );
   return result.modifiedCount === 1;
