@@ -1,14 +1,11 @@
 {
   "full_name": "Dr. Rachel Levi",
   "specialty": "Clinical Psychology",
-  "working_hours": {
+  "working_time": {
     "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-    "hours": "09:00 AM - 05:00 PM"
+    "hours": { "from": "09:00", "to": "17:30" }
   },
-  
 
-
-  
   "contact_information": {
     "phone": "052-1234567",
     "email": "drlevi@example.com",
