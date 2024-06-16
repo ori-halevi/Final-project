@@ -1,7 +1,7 @@
 [
   {
     "full_name": "Yossi Cohen",
-    "id_number": "123456789",
+    "id_number": 123456789,
     "password": "123456",
     "payment_method": "Credit Card",
     "health_insurance": "Maccabi",
@@ -14,7 +14,7 @@
   },
   {
     "full_name": "Rachel Levi",
-    "id_number": "987654321",
+    "id_number": 987654321,
     "password": "123456",
     "payment_method": "Direct Debit",
     "health_insurance": "Clalit",
