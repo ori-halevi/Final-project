@@ -15,7 +15,7 @@
           <img
             src="../RESOURCES/Images/logo/logo.png"
             alt="logo"
-            style="height: 350px 350px"
+            style="height: 250px"
           />
         </div>
       </div>
@@ -37,11 +37,10 @@
 
     <div id="content">
       <div id="searchContainer">
-
         <div>
           <button>Search</button>
         </div>
-
+        <!-- doctors names dropdown button -->
         <div class="doctors-names-dropdown-main-div doctorsDropdownCSS">
           <button id="doctors-names-dropdown-button">Doctors names</button>
           <div
@@ -58,8 +57,69 @@
               <li>Dr. John Doe</li>
               <li>Dr. Jane Smith</li>
               <li>Dr. Alice Johnson</li>
-              <li>Dr. Bob Brown</li>
-              <li>Dr. Emily White</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- specialties dropdown button -->
+        <div class="specialties-dropdown-main-div doctorsDropdownCSS">
+          <button id="doctors-names-dropdown-button">specialties</button>
+          <div
+            id="specialties-dropdown-suggestions-div"
+            class="dropdown-content dropdown-contentCSS"
+          >
+            <input
+              type="text"
+              placeholder="Search.."
+              id="specialties-searchBox-input"
+              class="search-box search-boxCSS"
+            />
+            <ul id="specialties-list" class="doctor-list doctor-listCSS">
+              <li>Psychiatrist</li>
+              <li>Psychologist</li>
+              <li>Psychoanalyst</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- city dropdown button -->
+        <div class="city-dropdown-main-div doctorsDropdownCSS">
+          <button id="doctors-names-dropdown-button">city</button>
+          <div
+            id="city-dropdown-suggestions-div"
+            class="dropdown-content dropdown-contentCSS"
+          >
+            <input
+              type="text"
+              placeholder="Search.."
+              id="city-searchBox-input"
+              class="search-box search-boxCSS"
+            />
+            <ul id="city-list" class="doctor-list doctor-listCSS">
+              <li>bne brak</li>
+              <li>tel aviv</li>
+              <li>jeruzalem</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- language dropdown button -->
+        <div class="language-dropdown-main-div doctorsDropdownCSS">
+          <button id="doctors-names-dropdown-button">language</button>
+          <div
+            id="language-dropdown-suggestions-div"
+            class="dropdown-content dropdown-contentCSS"
+          >
+            <input
+              type="text"
+              placeholder="Search.."
+              id="language-searchBox-input"
+              class="search-box search-boxCSS"
+            />
+            <ul id="language-list" class="doctor-list doctor-listCSS">
+              <li>hebrow</li>
+              <li>english</li>
+              <li>russion</li>
             </ul>
           </div>
         </div>

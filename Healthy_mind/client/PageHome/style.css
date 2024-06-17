@@ -20,25 +20,29 @@ body {
   background-image: url("../RESOURCES/Images/Background/1.jpg");
   background-size: cover;
   background-position: center;
-  height: 450px;
+  height: 250px;
   position: relative;
 }
 #logoDiv {
   padding: 10px 20px;
-  height: 350px;
-  width: 350px;
+  height: 250px;
+  width: 250px;
 }
 #websiteButtonsList li {
-  margin: 5px;
+  margin: 15px;
   list-style-type: none; /* אפשרויות נוספות: circle, disc, none וכו' */
-  font-size: 250%;
+  font-size: 180%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 10xp;
-  color: white;
+  color: #026fe6;
   /* border: none; */
 }
+
+#websiteButtonsList {
+  display: flex;
+  gap: 2rem;
+}
+
 #websiteButtons {
   display: flex;
   /* padding: 10px 20px; */
@@ -58,8 +62,8 @@ body {
 #userIdentification {
   display: flex;
   padding: 10px 20px;
-  height: 350px;
-  width: 350px;
+  height: 250px;
+  width: 250px;
   justify-content: space-between;
   align-items: center;
   justify-content: center;
@@ -88,7 +92,14 @@ body {
   align-items: center;
   align-content: space-around;
 }
-
+#searchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
 #searchResultList {
   display: flex;
   flex-wrap: wrap;
