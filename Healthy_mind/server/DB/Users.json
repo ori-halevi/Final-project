@@ -10,7 +10,9 @@
       "phone": "050-1234567",
       "email": "yossi@example.com"
     },
-    "appointments": []
+    "appointments": [
+      {"date":}
+    ]
   },
   {
     "full_name": "Rachel Levi",
