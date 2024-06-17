@@ -15,6 +15,10 @@ async function main() {
 const userSchema = new Schema({
   full_name: String,
   id_number: Number,
+  password: String,
+  payment_method: String,
+  health_insurance: String,
+  age: Number,
   imgSrc: String,
   contact_information: Object,
   appointments: [Object],

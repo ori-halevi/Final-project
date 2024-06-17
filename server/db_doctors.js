@@ -21,7 +21,7 @@ const doctorSchema = new Schema({
   
 });
 
-const Doctor = mongoose.model("doctors", userSchema);
+const Doctor = mongoose.model("doctors", doctorSchema);
 
 async function getDoctors() {
   const result = await Doctor.find();
@@ -33,8 +33,8 @@ async function getDoctorById(doctorId) {
   return result;
 }
 
-async function createUser(newUser) {
-  const result = await Doctor.create(newUser);
+async function createDoctor(newDoctor) {
+  const result = await Doctor.create(newDoctor);
   return result;
 }
 
