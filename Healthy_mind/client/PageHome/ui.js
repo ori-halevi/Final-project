@@ -14,7 +14,7 @@ const doctorsNamesDropdownMainDiv = document.getElementById(
 
 
 
-// START OF DOCTORS DROPDOWN BUTTON
+// START OF DOCTORS NAMES DROPDOWN BUTTON
 
 // By ori, this is the function that is called when the user enters a character in the search box.
 doctorsNamesSearchBoxInput.addEventListener("input", function () {
@@ -56,14 +56,7 @@ doctorsNamesDropdownButton.addEventListener("click", function () {
 
 
 
-
 // END OF CATEGORIES DROPDOWN BUTTON
-
-
-
-
-
-
 
 
 
