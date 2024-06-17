@@ -11,7 +11,7 @@ async function main() {
     console.error(error);
   }
 }
-const patientSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   full_name: { type: String, required: true },
   id_number: { type: Number, required: true, unique: true },
   password: { type: String, required: true },
@@ -19,10 +19,10 @@ const patientSchema = new mongoose.Schema({
   health_insurance: { type: String, required: true },
   age: { type: Number, required: true },
   contact_information: {
-      phone: { type: String, required: true },
-      email: { type: String, required: true }
+    phone: { type: String, required: true },
+    email: { type: String, required: true },
   },
-  appointments: { type: [String], default: [] }
+  appointments: { type: [String], default: [] },
 });
 
 const User = mongoose.model("users", userSchema);
