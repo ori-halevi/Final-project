@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('../MyProject/רקע\ ריק.png') no-repeat center center fixed;
+    background: url('../RESOURCES/Images/Background/עיצוב\ ללא\ שם.png') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -40,7 +40,7 @@ section h2 {
     font-size: 1.8em;
     margin-bottom: 15px;
     color: #34495e;
-    border-bottom: 2px solid #6a11cb;
+    border-bottom: 2px solid #0b0788;
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -60,7 +60,7 @@ ul {
 blockquote {
     font-style: italic;
     color: #555;
-    border-left: 4px solid #6a11cb;
+    border-left: 4px solid #1140cb;
     padding-left: 15px;
     margin-left: 0;
     text-align: left;
@@ -99,4 +99,40 @@ blockquote {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input[type="date"], select {
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #2711cb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1611b3;
 }
