@@ -216,6 +216,27 @@ body {
 }
 /* end */
 
+
+
+.background-image-2 {
+  background-image: url("../RESOURCES/Images/Background/2.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .quickGet {
   display: flex;
   padding: 10px 20px;

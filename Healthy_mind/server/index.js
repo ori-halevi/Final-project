@@ -25,6 +25,7 @@ app.get("/api/doctorsInfo", async (req, res) => {
       doctersInfo["specialtyDoctor"] = doctor.specialty;
       doctersInfo["adrressDoctor"] = doctor.contact_information.address.city;
       doctersInfo["languagesDoctor"] = doctor.additional_details.languages;
+      doctersInfo["genderDoctor"] = doctor.gender;
       finalReturen.push(doctersInfo);
     });
     // console.log(finalReturen.map(doctor => doctor.specialtyDoctor));
@@ -62,11 +63,6 @@ app.post("/api/appointments", async (req, res) => {
     res.status(500).send({ message: "Internal server error" });
   }
 });
-
-
-
-
-
 
 // GET car by id
 app.get("/api/teslas/:id", async (req, res) => {

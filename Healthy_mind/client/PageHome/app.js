@@ -102,7 +102,7 @@ async function updateSearchResult(listDoctorsIds) {
       const imgItem = document.createElement("img");
       // Handle missing image: Set a default or error image
       imgItem.src = doctor.imgDoctor || "https://via.placeholder.com/150"; // Placeholder image
-      imgItem.alt = doctor.nameDoctor + " image";
+      imgItem.alt = doctor.nameDoctor + doctor.imgDoctor;
       const divItem = document.createElement("div"); // Optional for styling
       divItem.className = "imageDiv"
       divItem.appendChild(imgItem);
