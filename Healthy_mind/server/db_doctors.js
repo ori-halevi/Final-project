@@ -12,13 +12,38 @@ async function main() {
   }
 }
 
-const doctorSchema = new Schema({
-  full_name: String,
-  id_number: Number,
-  imgSrc: String,
-  contact_information: Object,
-  appointments: [Object],
-  
+const doctorSchema = new mongoose.Schema({
+    full_name: { type: String, required: true },
+    specialty: { type: String, required: true },
+    working_time: {
+        days: { type: [String], required: true },
+        hours: {
+            from: { type: String, required: true },
+            to: { type: String, required: true }
+        }
+    },
+    contact_information: {
+        phone: { type: String, required: true },
+        email: { type: String, required: true },
+        address: {
+            city: { type: String, required: true },
+            street: { type: String, required: true },
+            zipcode: { type: String, required: true }
+        }
+    },
+    additional_details: {
+        languages: { type: [String], required: true },
+        education: [
+            {
+                degree: { type: String, required: true },
+                university: { type: String, required: true },
+                year: { type: Number, required: true }
+            }
+        ],
+        certifications: { type: [String], required: true },
+        experience: { type: String, required: true }
+    },
+    appointments: { type: [String], default: [] }
 });
 
 const Doctor = mongoose.model("doctors", doctorSchema);
