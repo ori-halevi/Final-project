@@ -11,18 +11,18 @@ async function main() {
     console.error(error);
   }
 }
-
-const userSchema = new Schema({
-  full_name: String,
-  id_number: Number,
-  password: String,
-  payment_method: String,
-  health_insurance: String,
-  age: Number,
-  imgSrc: String,
-  contact_information: Object,
-  appointments: [Object],
-  
+const userSchema = new mongoose.Schema({
+  full_name: { type: String, required: true },
+  id_number: { type: Number, required: true, unique: true },
+  password: { type: String, required: true },
+  payment_method: { type: String, required: true },
+  health_insurance: { type: String, required: true },
+  age: { type: Number, required: true },
+  contact_information: {
+    phone: { type: String, required: true },
+    email: { type: String, required: true },
+  },
+  appointments: { type: [String], default: [] },
 });
 
 const User = mongoose.model("users", userSchema);
