@@ -27,7 +27,7 @@
   },
   {
     "full_name": "David Israeli",
-    "id_number": "123123123",
+    "id_number": 123123123,
     "password": "123456",
     "payment_method": "PayPal",
     "health_insurance": "Meuhedet",
