@@ -1,0 +1,336 @@
+div {
+  /* border: 2px rgb(230, 0, 255) solid; */
+}
+
+/* Ori added */
+body {
+  margin: 0; /* delete corners */
+  background-color: #f8f8f8;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px 20px;
+  height: 60%;
+}
+.background-image-1 {
+  background-image: url("../RESOURCES/Images/Background/1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  position: relative;
+}
+#logoDiv {
+  padding: 10px 20px;
+  height: 350px;
+  width: 350px;
+}
+#websiteButtonsList li {
+  margin: 5px;
+  list-style-type: none; /* אפשרויות נוספות: circle, disc, none וכו' */
+  font-size: 250%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10xp;
+  color: white;
+  /* border: none; */
+}
+#websiteButtons {
+  display: flex;
+  /* padding: 10px 20px; */
+  /* height: 100%; */
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+.horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  /* border: none; */
+}
+
+#userIdentification {
+  display: flex;
+  padding: 10px 20px;
+  height: 350px;
+  width: 350px;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+#userIdentification button {
+  width: 500%;
+  height: 20%;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid #3376f8; /* הוספת עובי גבול של 5 פיקסלים */
+  border-radius: 50px;
+  font-size: 20px;
+  background-color: #0133ae;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* border: none; */
+}
+
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 20px;
+  align-items: center;
+  align-content: space-around;
+}
+
+#searchResultList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+#searchResultList img {
+  height: 400px;
+  width: 400px;
+  margin: 30px;
+}
+#searchResultList ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+#searchResultList li {
+  display: flex;
+  font-size: 20px;
+  margin: 30px;
+  align-items: center;
+  flex-direction: column;
+}
+/* #searchResultList li.div{
+  display: flex;
+  height: 400px;
+  width: 400px;
+  font-size: 20px;
+  margin: 30px;
+} */
+.imageDiv {
+  display: flex;
+  width: 400px;
+  font-size: 20px;
+  margin: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+#searchResultList p {
+  display: flex;
+
+  font-size: 20px;
+}
+
+/* dropdown */
+.doctorsDropdownCSS button {
+  background-color: #f4f4f4; /* רקע בצבע אפור בהיר */
+  color: #333; /* צבע טקסט כהה */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ccc; /* מסגרת בצבע אפור כהה */
+  border-radius: 4px;
+  cursor: pointer;
+}
+.doctorsDropdownCSS button:hover {
+  background-color: #e6e6e6; /* רקע בהיר יותר בעת העברת העכבר מעל הכפתור */
+}
+.doctorsDropdownCSS .dropdown-contentCSS {
+  position: absolute;
+  display: none;
+  background-color: #fff; /* רקע של הרשימה בצבע לבן */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 1px solid #ccc; /* מסגרת בצבע אפור כהה */
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+.doctorsDropdownCSS {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-contentCSS {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.doctorsDropdownCSS:hover .dropdown-contentCSS {
+  display: block;
+}
+
+.doctor-listCSS {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.doctor-listCSS li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.doctor-listCSS li:hover {
+  background-color: #ddd;
+}
+
+.search-boxCSS {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+/* end */
+
+.quickGet {
+  display: flex;
+  padding: 10px 20px;
+  border: none;
+  align-items: center;
+}
+
+.advancedSearch {
+  display: flex;
+  padding: 10px 20px;
+  border: none;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.menu {
+  display: flex;
+  background-color: #f8f8f8;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.menu button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+.menu h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* .tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 50px;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  border: none;
+} */
+/* 
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 1;
+  margin-bottom: 5px;
+}
+
+.tooltip-container:hover .tooltip {
+  display: block;
+}
+.tooltip ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tooltip ul li {
+  margin: 5px 0;
+}
+
+.tooltip ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.tooltip ul li a:hover {
+  text-decoration: underline;
+} */
+.search-container input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.search-container button {
+  padding: 11.5px;
+  border: none;
+}
+
+.search-history {
+  position: absolute;
+  top: 40px;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  display: none;
+}
+
+.search-history div {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.search-history div:hover {
+  background-color: #f0f0f0;
+}
+.background-image-section {
+  background-image: url("./תמונת\ רקע.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  position: relative;
+}
