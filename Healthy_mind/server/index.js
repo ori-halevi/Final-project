@@ -1,4 +1,4 @@
-const express = require("./npm/node_modules/express/lib/express");
+const express = require("express");
 const cors = require("cors");
 const app = express();
 const dbUsers = require("./db_users");
@@ -13,15 +13,22 @@ app.use(cors());
 
 // GET all Doctors name
 app.get("/api/doctorsName", async (req, res) => {
-  console.log("test");
-
   try {
-    const doctersInfo = [];
+    let finalReturen = [];
     let doctors = await dbDoctors.getDoctors();
     doctors.forEach(function (doctor) {
-      nameDocters.push(doctor.full_name);
+      let doctersInfo = {};
+      doctersInfo["nameDoctor"] = doctor.full_name;
+      doctersInfo["experienceDoctor"] = doctor.additional_details.experience;
+      doctersInfo["imgDoctor"] = doctor.image;
+      doctersInfo["idDoctor"] = doctor._id;
+      doctersInfo["specialtyDoctor"] = doctor.specialty;
+      doctersInfo["adrressDoctor"] = doctor.contact_information.address.city;
+      doctersInfo["languagesDoctor"] = doctor.additional_details.languages;
+      finalReturen.push(doctersInfo);
     });
-    res.send(nameDocters);
+    // console.log(finalReturen);
+    res.send(finalReturen);
   } catch (error) {
     res.status(500).send();
   }
@@ -40,7 +47,7 @@ app.get("/api/teslas/:id", async (req, res) => {
 });
 
 // POST a new car
-app.post("/api/teslas", async (req, res) => {
+app.post("/api/teslas/:apointment", async (req, res) => {
   try {
     const car = await db.createCar(req.body);
     res.status(201).send(car);
