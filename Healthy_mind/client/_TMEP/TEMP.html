@@ -1,107 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctors Dropdown</title>
-    <style>
-        .doctorsDropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            padding: 12px 16px;
-            z-index: 1;
-        }
-
-        .doctorsDropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .doctor-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .doctor-list li {
-            padding: 8px;
-            cursor: pointer;
-        }
-
-        .doctor-list li:hover {
-            background-color: #ddd;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 8px;
-            box-sizing: border-box;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Appointment</title>
 </head>
 <body>
-    <div class="advancedSearch">
-        <div class="doctorsDropdown">
-            <button id="dropdownButton">Doctors</button>
-            <div id="dropdown-content" class="dropdown-content">
-                <input type="text" placeholder="Search.." id="searchBox" class="search-box">
-                <ul id="doctorList" class="doctor-list">
-                    <li>Dr. John Doe</li>
-                    <li>Dr. Jane Smith</li>
-                    <li>Dr. Alice Johnson</li>
-                    <li>Dr. Bob Brown</li>
-                    <li>Dr. Emily White</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+  <h1>Create an Appointment</h1>
+  <form id="appointment-form">
+    <label for="doctorId">Doctor ID:</label>
+    <input type="text" id="doctorId" name="doctorId" required><br><br>
+    <label for="userId">User ID:</label>
+    <input type="text" id="userId" name="userId" required><br><br>
 
-    <script>
-        document.getElementById('searchBox').addEventListener('input', function() {
-            let filter = this.value.toLowerCase();
-            let doctorList = document.getElementById('doctorList');
-            let doctors = doctorList.getElementsByTagName('li');
-            
-            for (let i = 0; i < doctors.length; i++) {
-                let doctorName = doctors[i].textContent || doctors[i].innerText;
-                if (doctorName.toLowerCase().indexOf(filter) > -1) {
-                    doctors[i].style.display = "";
-                } else {
-                    doctors[i].style.display = "none";
-                }
-            }
-        });
+    <button type="submit">Create Appointment</button>
+  </form>
 
-        document.getElementById('doctorList').addEventListener('click', function(e) {
-            if (e.target && e.target.nodeName == "LI") {
-                document.getElementById('dropdownButton').textContent = e.target.textContent;
-                document.getElementById('dropdown-content').style.display = 'none';
-            }
-        });
-
-        document.getElementById('dropdownButton').addEventListener('click', function() {
-            let dropdownContent = document.getElementById('dropdown-content');
-            if (dropdownContent.style.display === 'block') {
-                dropdownContent.style.display = 'none';
-            } else {
-                dropdownContent.style.display = 'block';
-            }
-        });
-
-        document.addEventListener('click', function(e) {
-            let dropdownContent = document.getElementById('dropdown-content');
-            if (!document.getElementById('doctorsDropdown').contains(e.target)) {
-                dropdownContent.style.display = 'none';
-            }
-        });
-    </script>
+  <script src="app.js"></script>
 </body>
 </html>
