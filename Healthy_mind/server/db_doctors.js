@@ -14,6 +14,7 @@ async function main() {
 
 const doctorSchema = new mongoose.Schema({
     full_name: { type: String, required: true },
+    image: {type: String, required: true},
     specialty: { type: String, required: true },
     working_time: {
         days: { type: [String], required: true },

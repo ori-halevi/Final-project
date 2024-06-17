@@ -1,6 +1,7 @@
 [
   {
     "full_name": "Dr. Rachel Levi",
+    "image": "https://drive.google.com/file/d/1NpABJsRxjiEg6qORi3bLa9jNcc44E96I/view?usp=drive_link",
     "specialty": "Clinical Psychology",
     "working_time": {
       "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
@@ -38,6 +39,7 @@
 
   {
     "full_name": "Dr. David Cohen",
+    "image": "https://drive.google.com/file/d/1o2kY9fMv01D2op-HAtelzpcGZvBYFt36/view?usp=drive_link",
     "specialty": "Psychiatry",
     "working_time": {
       "days": ["Sunday", "Tuesday", "Wednesday", "Friday"],
@@ -74,7 +76,8 @@
   },
 
   {
-    "full_name": "Dr. Miriam Rosen",
+    "full_name": "Dr. Alan Rosen",
+    "image": "https://drive.google.com/file/d/16WAXkphLD-E2UnYdtar6FvIYQrxGaw7b/view?usp=drive_link",
     "specialty": "Child and Adolescent Psychiatry",
     "working_time": {
       "days": ["Monday", "Wednesday", "Thursday"],
@@ -114,6 +117,7 @@
 
   {
     "full_name": "Dr. Yael Ben-David",
+    "image": "https://drive.google.com/file/d/12ZXgh3FyjHRdaDDa5zkEmJCsMLcZNIfS/view?usp=drive_link",
     "specialty": "Neuropsychology",
     "working_time": {
       "days": ["Sunday", "Tuesday", "Thursday"],
