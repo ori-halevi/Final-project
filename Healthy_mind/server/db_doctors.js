@@ -12,6 +12,8 @@ async function main() {
   }
 }
 
+const mongoose = require('mongoose');
+
 const doctorSchema = new mongoose.Schema({
   full_name: { type: String, required: true },
   image: { type: String, required: true },
@@ -44,7 +46,12 @@ const doctorSchema = new mongoose.Schema({
     certifications: { type: [String], required: true },
     experience: { type: String, required: true },
   },
-  appointments: { type: [String], default: [] },
+  appointments: [
+    {
+      patientId: { type: mongoose.Schema.Types.ObjectId, required: true },
+      date: { type: Date, required: true },
+    },
+  ],
 });
 
 const Doctor = mongoose.model("doctors", doctorSchema);
@@ -72,14 +79,14 @@ async function updateDoctorName(doctorId, newName) {
   return result.modifiedCount === 1;
 }
 
-async function newDoctorApointment(doctorId, apointmentDetails) {
+async function newDoctorApointment(doctorId, appointmentDetails) {
   const result = await Doctor.updateOne(
     { _id: doctorId },
     {
-      $set: {
+      $push: {
         appointments: {
-          patienId: apointmentDetails.patienId,
-          date: apointmentDetails.date,
+          patientId: appointmentDetails.patientId,
+          date: appointmentDetails.date,
         },
       },
     }

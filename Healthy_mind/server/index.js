@@ -34,6 +34,39 @@ app.get("/api/doctorsName", async (req, res) => {
   }
 });
 
+// POST a new appointment
+app.post("/api/appointments", async (req, res) => {
+  try {
+    const { doctorId, userId, date } = req.body;
+
+    // Update doctor's appointments
+    const doctorUpdated = await dbDoctors.newDoctorApointment(doctorId, {
+      patientId: userId,
+      date: date,
+    });
+
+    // Update user's appointments
+    const userUpdated = await dbUsers.newUserAppointment(userId, {
+      doctorId: doctorId,
+      date: date,
+    });
+
+    if (doctorUpdated && userUpdated) {
+      res.status(201).send({ message: "Appointment created successfully" });
+    } else {
+      res.status(500).send({ message: "Failed to create appointment" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "Internal server error" });
+  }
+});
+
+
+
+
+
+
 // GET car by id
 app.get("/api/teslas/:id", async (req, res) => {
   try {
