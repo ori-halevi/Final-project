@@ -28,14 +28,14 @@ body {
   height: 350px;
   width: 350px;
 }
-#websiteButtonsList {
+#websiteButtonsList li{
   margin: 5px;
   list-style-type: none; /* אפשרויות נוספות: circle, disc, none וכו' */
   font-size: 250%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
+  justify-content: ;
+  padding: 10  te
   color: white;
   /* border: none; */
 }
