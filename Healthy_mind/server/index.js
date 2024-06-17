@@ -11,8 +11,8 @@ app.use(express.json());
 // Use CORS middleware
 app.use(cors());
 
-// GET all Doctors name
-app.get("/api/doctorsName", async (req, res) => {
+// GET all Doctors Info
+app.get("/api/doctorsInfo", async (req, res) => {
   try {
     let finalReturen = [];
     let doctors = await dbDoctors.getDoctors();
@@ -27,7 +27,7 @@ app.get("/api/doctorsName", async (req, res) => {
       doctersInfo["languagesDoctor"] = doctor.additional_details.languages;
       finalReturen.push(doctersInfo);
     });
-    // console.log(finalReturen);
+    // console.log(finalReturen.map(doctor => doctor.specialtyDoctor));
     res.send(finalReturen);
   } catch (error) {
     res.status(500).send();
