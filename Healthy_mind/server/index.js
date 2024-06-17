@@ -28,6 +28,7 @@ app.get("/api/doctorsInfo", async (req, res) => {
       finalReturen.push(doctersInfo);
     });
     // console.log(finalReturen.map(doctor => doctor.specialtyDoctor));
+    // console.log(finalReturen);
     res.send(finalReturen);
   } catch (error) {
     res.status(500).send();

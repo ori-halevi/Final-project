@@ -1,7 +1,7 @@
 [
   {
     "full_name": "Dr. Rachel Levi",
-    "image": "https://drive.google.com/file/d/1NpABJsRxjiEg6qORi3bLa9jNcc44E96I/view?usp=drive_link",
+    "image": "../RESOURCES/Images/Doctors/5.jpg",
     "specialty": [
       "Psychologist",
       "Trauma therapist",
@@ -49,7 +49,7 @@
 
   {
     "full_name": "Dr. David Cohen",
-    "image": "https://drive.google.com/file/d/1o2kY9fMv01D2op-HAtelzpcGZvBYFt36/view?usp=drive_link",
+    "image": "../RESOURCES/Images/Doctors/1.jpg",
     "specialty": [
       "Psychiatrist",
       "Transplant psychiatrist",
@@ -103,7 +103,7 @@
 
   {
     "full_name": "Dr. Alan Rosen",
-    "image": "https://drive.google.com/file/d/16WAXkphLD-E2UnYdtar6FvIYQrxGaw7b/view?usp=drive_link",
+    "image": "../RESOURCES/Images/Doctors/2.jpg",
     "specialty": [
       "Child and adolescent therapist",
       "Autism specialist",
@@ -159,7 +159,7 @@
 
   {
     "full_name": "Dr. Yael Ben-David",
-    "image": "https://drive.google.com/file/d/12ZXgh3FyjHRdaDDa5zkEmJCsMLcZNIfS/view?usp=drive_link",
+    "image": "../RESOURCES/Images/Doctors/7.jpg",
     "specialty": ["Neuropsychology", "Community therapist", "Psychotherapist"],
     "working_time": {
       "days": ["Sunday", "Tuesday", "Thursday"],
@@ -208,7 +208,7 @@
   },
   {
     "full_name": "Dr. Michael Cohen",
-    "image": "https://drive.google.com/file/d/16WAXkphLD-E2UnYdtar6FvIYQrxGaw7b/view?usp=drive_link",
+    "image": "../RESOURCES/Images/Doctors/3.jpg",
     "specialty": ["General Psychiatry", "Religious counselor", "Psychoanalyst"],
     "working_time": {
       "days": ["Sunday", "Tuesday", "Friday"],
@@ -257,7 +257,7 @@
   },
   {
     "full_name": "Dr. Sarit Lavi",
-    "image": "https://drive.google.com/file/d/1NpABJsRxjiEg6qORi3bLa9jNcc44E96I/view?usp=drive_link",
+    "image": "../RESOURCES/Images/Doctors/4.jpg",
     "specialty": [
       "Geriatric psychiatrist",
       "Genetic counselor",
