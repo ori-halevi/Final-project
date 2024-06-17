@@ -12,7 +12,6 @@ async function main() {
   }
 }
 
-const mongoose = require('mongoose');
 
 const doctorSchema = new mongoose.Schema({
   full_name: { type: String, required: true },
