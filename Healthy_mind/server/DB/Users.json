@@ -11,7 +11,12 @@
       "email": "yossi@example.com"
     },
     "appointments": [
-      {"date":}
+      {
+        "doctorId": {
+          "$oid": "666abbfc533a70d7d4c59f36"
+        },
+        "date": "2000-01-17T16:00:00"
+      }
     ]
   },
   {
@@ -25,7 +30,14 @@
       "phone": "052-7654321",
       "email": "rachel@example.com"
     },
-    "appointments": []
+    "appointments": [
+      {
+        "doctorId": {
+          "$oid": "666abbfc533a70d7d4c59f36"
+        },
+        "date": "2000-01-17T12:00:00"
+      }
+    ]
   },
   {
     "full_name": "David Israeli",
@@ -38,6 +50,13 @@
       "phone": "053-9876543",
       "email": "david@example.com"
     },
-    "appointments": []
+    "appointments": [
+      {
+        "doctorId": {
+          "$oid": "666abbfc533a70d7d4c59f36"
+        },
+        "date": "2000-01-17T13:00:00"
+      }
+    ]
   }
 ]

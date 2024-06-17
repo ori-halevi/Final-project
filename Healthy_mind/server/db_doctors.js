@@ -72,6 +72,17 @@ async function updateDoctorName(doctorId, newName) {
   return result.modifiedCount === 1;
 }
 
+async function newDoctorApointment(doctorId, apointmentDetails) {
+  const result = await Doctor.updateOne(
+    { _id: doctorId },
+    { $set: { appointments: {
+      patienId : apointmentDetails.patienId,
+      date : apointmentDetails.date
+    } } }
+  );
+  return result.modifiedCount === 1;
+}
+
 async function deleteDoctor(doctorId) {
   const result = await Doctor.deleteOne({ _id: doctorId });
   return result.deletedCount === 1;
@@ -84,5 +95,6 @@ module.exports = {
   getDoctorById,
   createDoctor,
   updateDoctorName,
+  newDoctorApointment,
   deleteDoctor,
 };
