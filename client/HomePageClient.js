@@ -37,5 +37,3 @@ async function readFile() {
     }, 5500);
   }
 }
-
-

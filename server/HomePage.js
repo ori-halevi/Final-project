@@ -11,11 +11,17 @@ app.use(express.json());
 // Use CORS middleware
 app.use(cors());
 
-// GET all cars
+// GET all Doctors name
 app.get("/api/doctorsName", async (req, res) => {
+  console.log("test");
+
   try {
-    const cars = await db.getCars();
-    res.send(cars);
+    const doctersInfo = [];
+    let doctors = await dbDoctors.getDoctors();
+    doctors.forEach(function (doctor) {
+      nameDocters.push(doctor.full_name);
+    });
+    res.send(nameDocters);
   } catch (error) {
     res.status(500).send();
   }
@@ -67,7 +73,6 @@ app.delete("/api/teslas/:id", async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}...`));
 const listContacts = [
   { Ori: "0543351321" },
   { Moshe: "0543265143" },
@@ -104,6 +109,4 @@ app.post("/contacts", (res, req) => {
   }
 });
 
-app.listen(port, () => {
-  console.log("Server started!");
-});
+app.listen(port, () => console.log(`Listening on port ${port}...`));
