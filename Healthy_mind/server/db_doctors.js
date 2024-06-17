@@ -13,38 +13,38 @@ async function main() {
 }
 
 const doctorSchema = new mongoose.Schema({
-    full_name: { type: String, required: true },
-    image: {type: String, required: true},
-    specialty: { type: String, required: true },
-    working_time: {
-        days: { type: [String], required: true },
-        hours: {
-            from: { type: String, required: true },
-            to: { type: String, required: true }
-        }
+  full_name: { type: String, required: true },
+  image: { type: String, required: true },
+  specialty: { type: [String], required: true },
+  working_time: {
+    days: { type: [String], required: true },
+    hours: {
+      from: { type: String, required: true },
+      to: { type: String, required: true },
     },
-    contact_information: {
-        phone: { type: String, required: true },
-        email: { type: String, required: true },
-        address: {
-            city: { type: String, required: true },
-            street: { type: String, required: true },
-            zipcode: { type: String, required: true }
-        }
+  },
+  contact_information: {
+    phone: { type: String, required: true },
+    email: { type: String, required: true },
+    address: {
+      city: { type: String, required: true },
+      street: { type: String, required: true },
+      zipcode: { type: String, required: true },
     },
-    additional_details: {
-        languages: { type: [String], required: true },
-        education: [
-            {
-                degree: { type: String, required: true },
-                university: { type: String, required: true },
-                year: { type: Number, required: true }
-            }
-        ],
-        certifications: { type: [String], required: true },
-        experience: { type: String, required: true }
-    },
-    appointments: { type: [String], default: [] }
+  },
+  additional_details: {
+    languages: { type: [String], required: true },
+    education: [
+      {
+        degree: { type: String, required: true },
+        university: { type: String, required: true },
+        year: { type: Number, required: true },
+      },
+    ],
+    certifications: { type: [String], required: true },
+    experience: { type: String, required: true },
+  },
+  appointments: { type: [String], default: [] },
 });
 
 const Doctor = mongoose.model("doctors", doctorSchema);
@@ -75,10 +75,14 @@ async function updateDoctorName(doctorId, newName) {
 async function newDoctorApointment(doctorId, apointmentDetails) {
   const result = await Doctor.updateOne(
     { _id: doctorId },
-    { $set: { appointments: {
-      patienId : apointmentDetails.patienId,
-      date : apointmentDetails.date
-    } } }
+    {
+      $set: {
+        appointments: {
+          patienId: apointmentDetails.patienId,
+          date: apointmentDetails.date,
+        },
+      },
+    }
   );
   return result.modifiedCount === 1;
 }

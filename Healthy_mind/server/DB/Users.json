@@ -1,6 +1,6 @@
 [
   {
-    "full_name": "Yossi Cohen",
+    "full_name": "Ori Moshe",
     "id_number": 123456789,
     "password": "123456",
     "payment_method": "Credit Card",
@@ -56,6 +56,66 @@
           "$oid": "666abbfc533a70d7d4c59f36"
         },
         "date": "2000-01-17T13:00:00"
+      }
+    ]
+  },
+  {
+    "full_name": "Miriam Goldberg",
+    "id_number": 321321321,
+    "password": "654321",
+    "payment_method": "Credit Card",
+    "health_insurance": "Leumit",
+    "age": 50,
+    "contact_information": {
+      "phone": "054-3211234",
+      "email": "miriam@example.com"
+    },
+    "appointments": [
+      {
+        "doctorId": {
+          "$oid": "666abbfc533a70d7d4c59f37"
+        },
+        "date": "2000-01-18T10:00:00"
+      }
+    ]
+  },
+  {
+    "full_name": "Moshe Abramov",
+    "id_number": 456456456,
+    "password": "abcdef",
+    "payment_method": "Bank Transfer",
+    "health_insurance": "Maccabi",
+    "age": 38,
+    "contact_information": {
+      "phone": "050-4567890",
+      "email": "moshe@example.com"
+    },
+    "appointments": [
+      {
+        "doctorId": {
+          "$oid": "666abbfc533a70d7d4c59f38"
+        },
+        "date": "2000-01-18T11:30:00"
+      }
+    ]
+  },
+  {
+    "full_name": "Sara Cohen",
+    "id_number": 789789789,
+    "password": "987654",
+    "payment_method": "Direct Debit",
+    "health_insurance": "Clalit",
+    "age": 45,
+    "contact_information": {
+      "phone": "052-9876543",
+      "email": "sara@example.com"
+    },
+    "appointments": [
+      {
+        "doctorId": {
+          "$oid": "666abbfc533a70d7d4c59f39"
+        },
+        "date": "2000-01-18T14:00:00"
       }
     ]
   }
