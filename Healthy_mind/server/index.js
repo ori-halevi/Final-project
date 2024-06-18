@@ -92,4 +92,21 @@ app.post("/api/getUserInfoById", async (req, res) => {
   }
 });
 
+// If user exists
+app.post("/api/isUserExists", async (req, res) => {
+  try {
+    const { userName, password } = req.body;
+    const infou = await dbUsers.getUsers();
+    infou.forEach(function(user){
+      if(user.full_name === userName && user.password === password)
+        return res.send(true);
+      else{
+        return res.send(false)
+      }
+    })
+  } catch (error) {
+    res.status(500).send();
+  }
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}...`));
