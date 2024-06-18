@@ -153,3 +153,6 @@ async function showAllDoctors() {
 document.addEventListener("DOMContentLoaded", updateDropdowns);
 document.addEventListener("DOMContentLoaded", showAllDoctors);
 // document.addEventListener("DOMContentLoaded", updateSearchResult(["6670a64b72c0f7854f9832ce", "6670a64b72c0f7854f9832cf", "6670a64b72c0f7854f9832d0"]));
+
+
+
