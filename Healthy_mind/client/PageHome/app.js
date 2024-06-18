@@ -47,9 +47,9 @@ async function updateDropdowns() {
   doctorsCityList.innerHTML = ""; // ניקוי הרשימה הקיימת קודם
   let citiesSet = new Set(); // Set to store unique cities
   await doctors.forEach(async (doctor) => {
-      citiesSet.add(doctor.adrressDoctor);
-    });
-  
+    citiesSet.add(doctor.adrressDoctor);
+  });
+
   await citiesSet.forEach((city) => {
     const listItem = document.createElement("li");
     listItem.textContent = city;
@@ -78,7 +78,6 @@ async function updateDropdowns() {
 }
 
 async function updateSearchResult(listDoctorsIds) {
-
   const doctors = await fetchDoctorsInfo();
 
   // Assuming doctors is the array of doctors received from the server
@@ -104,15 +103,17 @@ async function updateSearchResult(listDoctorsIds) {
       divItem.appendChild(paragraphItem);
       const listItem = document.createElement("li");
       listItem.appendChild(divItem);
-      listItem.addEventListener("click", (event) => {
+      listItem.addEventListener("click", () => {
+        window.location.href = `../PageDoctorAbout/index.html?userId=${doctor.idDoctor}`;
       });
-
       doctorsList.appendChild(listItem);
     } else {
       console.warn(`Doctor with ID ${doctorId} not found`);
     }
   });
 }
+
+
 
 async function showAllDoctors() {
   const doctors = await fetchDoctorsInfo();

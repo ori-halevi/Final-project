@@ -46,8 +46,7 @@ doctorsNamesSearchBoxInput.addEventListener("input", function () {
 // By ori, this is the function that is called when the user clicks on a doctor name in the list.
 doctorsNamesList.addEventListener("click", function (e) {
   if (e.target && e.target.nodeName == "LI") {
-    doctorsNamesDropdownButton.textContent = e.target.outerText
-    ;
+    doctorsNamesDropdownButton.textContent = e.target.outerText;
     doctorsNamesDropdownSuggestionsDiv.style.display = "none";
   }
 });
@@ -83,8 +82,7 @@ specialtiesSearchBoxInput.addEventListener("input", function () {
 // This is the function that is called when the user clicks on a specialty in the list.
 specialtiesList.addEventListener("click", function (e) {
   if (e.target && e.target.nodeName == "LI") {
-    specialtiesDropdownButton.textContent = e.target.outerText
-;
+    specialtiesDropdownButton.textContent = e.target.outerText;
     specialtiesDropdownSuggestionsDiv.style.display = "none";
   }
 });

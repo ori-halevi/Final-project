@@ -1,3 +1,27 @@
+// פונקציה להוצאת פרמטרים מה-URL
+function getQueryParams() {
+  const params = {};
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  for (const [key, value] of urlParams) {
+    params[key] = value;
+  }
+  return params;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const params = getQueryParams();
+  const contentDiv = document.getElementById("content");
+  console.log(params.doctorId);
+  if (params.doctorId) {
+    console.log("here is content");
+    contentDiv.innerHTML = `<h2>Welcome, User ${params.doctorId}</h2>`;
+  } else {
+    console.log("sdsdsddcwef");
+    contentDiv.innerHTML = `<h2>Welcome, Guest</h2>`;
+  }
+});
+
 async function fetchDoctorInfo(doctorId) {
   try {
     const response = await fetch(
@@ -8,7 +32,8 @@ async function fetchDoctorInfo(doctorId) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ doctorId }),
-      });
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -16,14 +41,14 @@ async function fetchDoctorInfo(doctorId) {
 
     const data = await response.json();
     // console.log("Doctor Info:", data);
-
   } catch (error) {
     console.error("Fetch failed:", error);
-  }}
+  }
+}
 
 document.addEventListener(
   "DOMContentLoaded",
-  fetchDoctorInfo("667136193e89e4d10972cf67")
+  fetchDoctorInfo("6671261031493c86e4e30dc1")
 );
 
 async function fetchUserInfo(userId) {
@@ -42,12 +67,12 @@ async function fetchUserInfo(userId) {
 
     const data = await response.json();
     // console.log("User Info:", data);
-  
   } catch (error) {
     console.error("Fetch failed:", error);
-  }}
+  }
+}
 
 document.addEventListener(
   "DOMContentLoaded",
-  fetchUserInfo("666f1ec8468942bbef3b7222")
+  fetchUserInfo("666eeb05340d469f58628571")
 );
