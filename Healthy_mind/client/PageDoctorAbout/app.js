@@ -60,6 +60,7 @@ const doctorLanguages = document.getElementById("doctor-languages");
 const MonFriWorkingHours = document.getElementById("mon-fri-working-hours");
 const saturdayWorkingHours = document.getElementById("saturday-working-hours");
 const doctorSpecialization = document.getElementById("doctor-specialization");
+const doctorLocation = document.getElementById("doctor-location");
 
 async function revealDoctorInfo(doctorId) {
   const doctorInfo = await fetchDoctorInfo(doctorId);
@@ -90,10 +91,16 @@ async function revealDoctorInfo(doctorId) {
 
   saturdayWorkingHours.innerHTML = " <strong>" + "Saturday Working Hours: " + "</strong>";
   saturdayWorkingHours.innerHTML += `${doctorInfo.working_hours.Saturday.from} - ${doctorInfo.working_hours.Saturday.to}`;
+  
+  doctorLocation.innerHTML = `
+  <h2>Our Location</h2>
+  <p>${doctorInfo.contact_information.address.street}</p>
+  <p>Mindville, XY 45678</p>
+  <p><strong>Phone:</strong> (123) 456-7890</p>
+  <p><strong>Email:</strong> contact@serenityclinic.com</p>
+`;
 
-  // const doctorLanguages = document.getElementById("doctor-languages");
-  // doctorLanguages.innerHTML = " <strong>" + "Languages: " + "</strong>";
-  // doctorLanguages.innerHTML +=  doctorInfo.additional_details.languages;
+
 
 
 
