@@ -96,17 +96,28 @@ app.post("/api/getUserInfoById", async (req, res) => {
 // By Eliyahu
 app.post("/api/isUserExists", async (req, res) => {
   try {
-    const { userName, password } = req.body;
-    const infou = await dbUsers.getUsers();
-    infou.forEach(function (user) {
-      if (user.full_name === userName && user.password === password)
-        return res.send(true);
-      else {
-        return res.send(false);
+    const { username, password } = req.body;
+    const users = await dbUsers.getUsers();
+
+    let userExists = false;
+    let userId = null;
+
+    for (const user of users) {
+      if (user.full_name === username && user.password === password) {
+        userId = user._id;
+        userExists = true;
+        break;
       }
-    });
+    }
+
+    if (userExists) {
+      res.status(200).send({ userId });
+    } else {
+      res.status(200).send({ userId: null });
+    }
   } catch (error) {
-    res.status(500).send();
+    console.error("Error checking user existence:", error); // לוג שגיאה
+    res.status(500).send({ error: "Internal Server Error" });
   }
 });
 
