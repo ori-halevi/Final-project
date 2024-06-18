@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Appointment</title>
-</head>
-<body>
-  <h1>Create an Appointment</h1>
-  <form id="appointment-form">
-    <label for="doctorId">Doctor ID:</label>
-    <input type="text" id="doctorId" name="doctorId" required><br><br>
-    <label for="userId">User ID:</label>
-    <input type="text" id="userId" name="userId" required><br><br>
+<link rel="stylesheet" href="./style.css" />
 
-    <button type="submit">Create Appointment</button>
-  </form>
-
-  <script src="app.js"></script>
-</body>
-</html>
+<div class="search-container">
+  <input type="text" placeholder="חפש...">
+  <button>חיפוש</button>
+  <div class="doctorsDropdownCSS">
+    <button>בחירת רופא</button>
+    <div class="dropdown-contentCSS">
+      <ul class="doctor-listCSS">
+        <li>רופא 1</li>
+        <li>רופא 2</li>
+        <li>רופא 3</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,39 @@
-div {
-  /* border: 2px rgb(230, 0, 255) solid; */
+:root {
+  --primary-color: #4A90E2;
+  --primary-hover-color: #357ABD;
+  --secondary-color: #026fe6;
+  --background-color: #f8f8f8;
+  --font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  --border-color: #ccc;
+  --button-padding: 10px 20px;
+  --font-size-large: 180%;
+  --font-size-medium: 20px;
+  --transition-time: 0.3s;
 }
 
-/* Ori added */
+/* General */
 body {
-  margin: 0; /* delete corners */
-  background-color: #f8f8f8;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
 }
 
+button {
+  padding: var(--button-padding);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 10px;
+  transition: background-color var(--transition-time) ease;
+}
+
+button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Header */
 #header {
   display: flex;
   align-items: flex-end;
@@ -16,73 +41,28 @@ body {
   padding: 10px 20px;
   height: 60%;
 }
-.background-image-1 {
-  background-image: url("../RESOURCES/Images/Background/1.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 250px;
-  position: relative;
-}
-#logoDiv {
-  padding: 10px 20px;
-  height: 250px;
-  width: 250px;
-}
-#websiteButtonsList li {
-  margin: 15px;
-  list-style-type: none; /* אפשרויות נוספות: circle, disc, none וכו' */
-  font-size: 180%;
-  display: flex;
-  padding: 10xp;
-  color: #026fe6;
-  /* border: none; */
-}
 
-#websiteButtonsList {
-  display: flex;
-  gap: 2rem;
-}
-
-#websiteButtons {
-  display: flex;
-  /* padding: 10px 20px; */
-  /* height: 100%; */
-  justify-content: space-between;
-  align-items: center;
-  justify-content: center;
-}
-.horizontal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  /* border: none; */
-}
-
+#logoDiv,
 #user-identification {
-  display: flex;
   padding: 10px 20px;
   height: 250px;
   width: 250px;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
+
 #user-identification button {
-  width: 500%;
+  width: 100%;
   height: 20%;
   margin: 10px;
-  padding: 10px;
-  border: 5px solid #3376f8; /* הוספת עובי גבול של 5 פיקסלים */
+  border: 5px solid var(--primary-color);
   border-radius: 50px;
   font-size: 20px;
   background-color: #0133ae;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  /* border: none; */
 }
 
+/* Content */
 #content {
   display: flex;
   flex-wrap: wrap;
@@ -92,14 +72,8 @@ body {
   align-items: center;
   align-content: space-around;
 }
-#searchContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  list-style-type: none;
-}
+
+#searchContainer,
 #search-result-list {
   display: flex;
   flex-wrap: wrap;
@@ -108,11 +82,13 @@ body {
   justify-content: space-between;
   list-style-type: none;
 }
+
 #search-result-list img {
   height: 400px;
   width: 400px;
   margin: 30px;
 }
+
 #search-result-list ul {
   display: flex;
   flex-wrap: wrap;
@@ -121,80 +97,93 @@ body {
   justify-content: space-between;
   list-style-type: none;
 }
+
 #search-result-list li {
   display: flex;
-  font-size: 20px;
+  font-size: var(--font-size-medium);
   margin: 30px;
   height: 700px;
   align-items: center;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: all var(--transition-time) ease;
   cursor: pointer;
 }
+
 #search-result-list li:hover {
   background-color: #f0f0f0;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/* #search-result-list li.div{
-  display: flex;
-  height: 400px;
-  width: 400px;
-  font-size: 20px;
-  margin: 30px;
-} */
+
 .imageDiv {
   display: flex;
   width: 400px;
-  font-size: 20px;
+  font-size: var(--font-size-medium);
   margin: 30px;
   flex-direction: column;
   align-items: center;
 }
+
 #search-result-list p {
   display: flex;
-
-  font-size: 20px;
+  font-size: var(--font-size-medium);
 }
 
-/* dropdown */
-.doctorsDropdownCSS button {
-  background-color: #f4f4f4; /* רקע בצבע אפור בהיר */
-  color: #333; /* צבע טקסט כהה */
-  padding: 10px 20px;
-  font-size: 16px;
-  border: 1px solid #ccc; /* מסגרת בצבע אפור כהה */
-  border-radius: 4px;
-  cursor: pointer;
+/* Website Buttons */
+#websiteButtonsList {
+  display: flex;
+  gap: 2rem;
 }
-.doctorsDropdownCSS button:hover {
-  background-color: #e6e6e6; /* רקע בהיר יותר בעת העברת העכבר מעל הכפתור */
+
+#websiteButtonsList li {
+  margin: 15px;
+  list-style-type: none;
+  font-size: var(--font-size-large);
+  display: flex;
+  padding: 10px;
+  color: var(--secondary-color);
 }
-.doctorsDropdownCSS .dropdown-contentCSS {
-  position: absolute;
-  display: none;
-  background-color: #fff; /* רקע של הרשימה בצבע לבן */
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border: 1px solid #ccc; /* מסגרת בצבע אפור כהה */
-  border-top: none;
-  border-radius: 0 0 4px 4px;
+
+#websiteButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Dropdown */
 .doctorsDropdownCSS {
   position: relative;
   display: inline-block;
+}
+
+.doctorsDropdownCSS button {
+  background-color: #f4f4f4;
+  color: #333;
+  padding: var(--button-padding);
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.doctorsDropdownCSS button:hover {
+  background-color: #e6e6e6;
 }
 
 .dropdown-contentCSS {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 200px;
+  min-width: 160px;
+  max-height: 300px; /* מקסימום גובה */
+  overflow-y: auto; /* גלילה אנכית */
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
   z-index: 1;
+  border: 1px solid #ccc; /* מסגרת בצבע אפור כהה */
+  border-top: none;
+  border-radius: 0 0 4px 4px;
 }
+
 
 .doctorsDropdownCSS:hover .dropdown-contentCSS {
   display: block;
@@ -221,56 +210,43 @@ body {
   margin-bottom: 8px;
   box-sizing: border-box;
 }
-/* end */
 
-
-
+/* Background Images */
+.background-image-1,
 .background-image-2 {
-  background-image: url("../RESOURCES/Images/Background/2.jpg");
   background-size: cover;
   background-position: center;
   height: 250px;
   position: relative;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.quickGet {
-  display: flex;
-  padding: 10px 20px;
-  border: none;
-  align-items: center;
+.background-image-1 {
+  background-image: url("../RESOURCES/Images/Background/1.jpg");
 }
 
-.advancedSearch {
-  display: flex;
-  padding: 10px 20px;
-  border: none;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: row;
+.background-image-2 {
+  background-image: url("../RESOURCES/Images/Background/2.jpg");
 }
 
+.background-image-section {
+  background-image: url("./תמונת\ רקע.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  position: relative;
+}
+
+/* Menu */
 .menu {
   display: flex;
-  background-color: #f8f8f8;
+  background-color: var(--background-color);
   flex-direction: row;
   justify-content: flex-end;
 }
+
 .menu button {
-  padding: 10px 20px;
+  padding: var(--button-padding);
   font-size: 16px;
-  cursor: pointer;
-  border: none;
 }
 
 .menu h1 {
@@ -278,71 +254,22 @@ body {
   font-size: 24px;
 }
 
-/* .tooltip-container {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  margin: 50px;
-  font-size: 18px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-  border: none;
-} */
-/* 
-.tooltip {
-  display: none;
-  position: absolute;
-  bottom: auto;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 5px;
-  border-radius: 4px;
-  white-space: nowrap;
-  z-index: 1;
-  margin-bottom: 5px;
-}
-
-.tooltip-container:hover .tooltip {
-  display: block;
-}
-.tooltip ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.tooltip ul li {
-  margin: 5px 0;
-}
-
-.tooltip ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.tooltip ul li a:hover {
-  text-decoration: underline;
-} */
-.search-container input {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
+/* Search Container */
 .search-container {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 25px;
   font-size: 16px;
-  cursor: pointer;
 }
+
+.search-container input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
 .search-container button {
   padding: 11.5px;
   border: none;
@@ -352,7 +279,7 @@ body {
   position: absolute;
   top: 40px;
   background-color: white;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   width: 100%;
   max-height: 150px;
   overflow-y: auto;
@@ -367,10 +294,28 @@ body {
 .search-history div:hover {
   background-color: #f0f0f0;
 }
-.background-image-section {
-  background-image: url("./תמונת\ רקע.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 450px;
-  position: relative;
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  #header,
+  #logoDiv,
+  #user-identification {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  #content {
+    flex-direction: column;
+  }
+
+  #search-result-list li {
+    height: auto;
+    width: 100%;
+  }
+
+  #websiteButtonsList {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

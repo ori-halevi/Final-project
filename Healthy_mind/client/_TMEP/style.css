@@ -1,0 +1,104 @@
+/* General */
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+  }
+  
+  button {
+    padding: var(--button-padding);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 10px;
+    transition: background-color var(--transition-time) ease;
+  }
+  
+  button:hover {
+    background-color: var(--primary-hover-color);
+  }
+  
+  /* Search Container */
+  .search-container {
+    display: flex;
+    flex-wrap: wrap; /* כדי שהכפתורים ישברו לשורה חדשה אם אין מקום */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+    gap: 10px; /* ריווח בין הכפתורים */
+  }
+  
+  .search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 10px; /* ריווח מימין לשדה הטקסט */
+  }
+  
+  .search-container button {
+    padding: 11.5px;
+    border: none;
+  }
+  
+  /* Dropdown */
+  .doctorsDropdownCSS {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .doctorsDropdownCSS button {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: var(--button-padding);
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+  }
+  
+  .doctorsDropdownCSS button:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .dropdown-contentCSS {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    max-height: 200px; /* מקסימום גובה */
+    overflow-y: auto; /* גלילה אנכית */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+  }
+  
+  .doctorsDropdownCSS:hover .dropdown-contentCSS {
+    display: block;
+  }
+  
+  .doctor-listCSS {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .doctor-listCSS li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .doctor-listCSS li:hover {
+    background-color: #ddd;
+  }
+  
+  .search-boxCSS {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+  }
+  

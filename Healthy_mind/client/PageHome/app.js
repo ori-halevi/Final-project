@@ -129,21 +129,79 @@ async function updateDropdowns() {
     doctorsLanguageList.appendChild(listItem);
   });
 }
+const searchButton = document.getElementById("search-button");
+const doctorsNamesDropdown = document.getElementById(
+  "doctors-names-dropdown-button"
+);
+const specialtiesDropdown = document.getElementById(
+  "specialties-dropdown-button"
+);
+const cityDropdown = document.getElementById("city-dropdown-button");
+const languageDropdown = document.getElementById("language-dropdown-button");
+const genderDropdown = document.getElementById(
+  "doctors-gender-dropdown-button"
+);
 
+searchButton.addEventListener("click", async () => {
+  const searchParams = {
+    name: doctorsNamesDropdown.textContent,
+    specialty: specialtiesDropdown.textContent,
+    city: cityDropdown.textContent,
+    language: languageDropdown.textContent,
+    gender: genderDropdown.textContent,
+  };
+  for (const key in searchParams) {
+    if (searchParams.hasOwnProperty(key)) {
+      const value = searchParams[key];
+      if (
+        value === "Doctors names" ||
+        value === "specialties" ||
+        value === "city" ||
+        value === "language" ||
+        value === "gender"
+      ) {
+        searchParams[key] = null;
+      }
+    }
+  }
+  const filteredDoctors = await fetchFilteredDoctors(searchParams);
+  updateSearchResult(filteredDoctors);
+});
+// TODO: לתקן כך שבצד לקוח יהיה את החישוב להוצאת המזהה ולא בצד שרת כמו שזה עכשיו, צריך לגזור דברים מצד שרת
+async function fetchFilteredDoctors(params) {
+  try {
+    const response = await fetch("http://localhost:8080/api/filterDoctors", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(params),
+    });
+    console.log(await response.json());
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    console.log(await response.json());
+    return await response.json();
+  } catch (error) {
+    console.error("Fetch failed:", error);
+    return [];
+  }
+}
 async function updateSearchResult(listDoctorsIds) {
   const doctors = await fetchDoctorsInfo();
 
   const doctorsList = document.getElementById("search-result-list");
-  doctorsList.innerHTML = ""; 
+  doctorsList.innerHTML = "";
 
   listDoctorsIds.forEach((doctorId) => {
     const doctor = doctors.find((doctor) => doctor.idDoctor === doctorId);
 
     if (doctor) {
       const imgItem = document.createElement("img");
-      imgItem.src = doctor.imgDoctor || "https://via.placeholder.com/150"; 
+      imgItem.src = doctor.imgDoctor || "https://via.placeholder.com/150";
       imgItem.alt = doctor.nameDoctor + doctor.imgDoctor;
-      const divItem = document.createElement("div"); 
+      const divItem = document.createElement("div");
       divItem.className = "imageDiv";
       divItem.appendChild(imgItem);
       const paragraphItem = document.createElement("p");
