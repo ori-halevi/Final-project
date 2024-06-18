@@ -64,13 +64,16 @@ app.post("/api/appointments", async (req, res) => {
   }
 });
 
-// GET car by id
-app.get("/api/teslas/:id", async (req, res) => {
+// GET doctor infomartion by id
+app.post("/api/getDoctorInfoById", async (req, res) => {
   try {
-    const car = await db.getCarById(req.params.id);
-    if (!car) return res.status(404).send();
-    res.send(car);
-    res.send(car);
+    console.log("test1");
+    const { doctorId } = req.body;
+    console.log(doctorId);
+
+    const info = await dbDoctors.getDoctorById(doctorId);
+    if (!info) return res.status(404).send();
+    res.send(info);
   } catch (error) {
     res.status(500).send();
   }
