@@ -1,3 +1,71 @@
+const userIdentification = document.getElementById("user-identification");
+
+// this function get prams from the url
+function getQueryParams() {
+  const params = {};
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  for (const [key, value] of urlParams) {
+    params[key] = value;
+  }
+  return params;
+}
+
+// this function will be called when the page is loaded
+document.addEventListener("DOMContentLoaded", async function () {
+  const params = getQueryParams();
+  console.log(params);
+  const contentDiv = document.getElementById("content");
+  if (params.userId) {
+    // console.log("Page been addressed");
+    const userInfo = await fetchUserInfo(params.userId);
+    updatePageToUser(params.userId, userInfo.full_name);
+
+  } else {
+    // console.log("Page not addressed");
+    
+  }
+});
+
+
+async function fetchUserInfo(userId) {
+  try {
+    const response = await fetch("http://localhost:8080/api/getUserInfoById", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId }),
+    });
+    // console.log(response);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch failed:", error);
+  }
+}
+
+
+function updatePageToUser(userId, username) {
+  // מחפש את הכפתור שנמצא בתוך אלמנט ה-ID של המזהה 'user-identification'
+  const loginButton = userIdentification.querySelector("button");
+
+  // שינוי תוכן הכפתור לשם המשתמש
+  loginButton.textContent = username;
+
+  // הוספת אירוע לכפתור המתאים שינווט לעמוד האישי
+  loginButton.addEventListener("click", () => {
+    window.location.href = `../PersonalArea/index.html?userId=${userId}`;
+  });
+}
+
+
+
+
 // GET request to the server to get the list of doctors
 async function fetchDoctorsInfo() {
   try {

@@ -34,8 +34,6 @@ loginButton.addEventListener("click", async (event) => {
     console.log("isUserExists:", isUserExists.userId);
     if (isUserExists.userId) {
       console.log("User exists:", isUserExists);
-      await new Promise(resolve => setTimeout(resolve, 10000));
-
       goToHomePageAsUser(isUserExists.userId);
     } else {
       console.log("User does not exist");

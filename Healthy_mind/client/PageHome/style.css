@@ -59,7 +59,7 @@ body {
   /* border: none; */
 }
 
-#userIdentification {
+#user-identification {
   display: flex;
   padding: 10px 20px;
   height: 250px;
@@ -68,7 +68,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-#userIdentification button {
+#user-identification button {
   width: 500%;
   height: 20%;
   margin: 10px;
