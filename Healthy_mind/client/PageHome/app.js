@@ -1,7 +1,7 @@
 const userIdentification = document.getElementById("user-identification");
 
-// this function get prams from the url
-function getQueryParams() {
+// פונקציה לקבלת פרמטרים מה-URL
+async function getQueryParams() {
   const params = {};
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -11,23 +11,19 @@ function getQueryParams() {
   return params;
 }
 
-// this function will be called when the page is loaded
+// פונקציה זו תיקרא כאשר הדף נטען
 document.addEventListener("DOMContentLoaded", async function () {
-  const params = getQueryParams();
-  console.log(params);
+  const params = await getQueryParams();
   const contentDiv = document.getElementById("content");
   if (params.userId) {
-    // console.log("Page been addressed");
     const userInfo = await fetchUserInfo(params.userId);
     updatePageToUser(params.userId, userInfo.full_name);
-
   } else {
-    // console.log("Page not addressed");
-    
+    // פעולות נוספות אם אין מזהה משתמש
   }
 });
 
-
+// באיחוד פונקציה זו עושה בקשת fetch לשרת כדי לקבל מידע על המשתמש
 async function fetchUserInfo(userId) {
   try {
     const response = await fetch("http://localhost:8080/api/getUserInfoById", {
@@ -37,47 +33,36 @@ async function fetchUserInfo(userId) {
       },
       body: JSON.stringify({ userId }),
     });
-    // console.log(response);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.error("Fetch failed:", error);
   }
 }
 
-
+// פונקציה זו מעדכנת את הדף למשתמש
 function updatePageToUser(userId, username) {
-  // מחפש את הכפתור שנמצא בתוך אלמנט ה-ID של המזהה 'user-identification'
   const loginButton = userIdentification.querySelector("button");
-
-  // שינוי תוכן הכפתור לשם המשתמש
   loginButton.textContent = username;
-
-  // הוספת אירוע לכפתור המתאים שינווט לעמוד האישי
   loginButton.addEventListener("click", () => {
     window.location.href = `../PersonalArea/index.html?userId=${userId}`;
   });
 }
 
-
-
-
-// GET request to the server to get the list of doctors
+// באיחוד פונקציה זו עושה בקשת fetch לשרת כדי לקבל את רשימת הרופאים
 async function fetchDoctorsInfo() {
   try {
     const response = await fetch("http://localhost:8080/api/doctorsInfo");
-    const doctors = await response.json();
-    return doctors;
+    return await response.json();
   } catch (error) {
     console.error("Error fetching doctors info:", error);
     return [];
   }
 }
 
+// פונקציה זו מעדכנת את הרשימות בדף בהתאם למידע שהתקבל מהשרת
 // A function that updates the dropdown list on the page with the information we received from the server
 async function updateDropdowns() {
   const doctors = await fetchDoctorsInfo();
@@ -148,22 +133,17 @@ async function updateDropdowns() {
 async function updateSearchResult(listDoctorsIds) {
   const doctors = await fetchDoctorsInfo();
 
-  // Assuming doctors is the array of doctors received from the server
   const doctorsList = document.getElementById("search-result-list");
-  doctorsList.innerHTML = ""; // Clear existing list
+  doctorsList.innerHTML = ""; 
 
   listDoctorsIds.forEach((doctorId) => {
     const doctor = doctors.find((doctor) => doctor.idDoctor === doctorId);
 
     if (doctor) {
-      // Check if doctor exists before accessing properties
-
       const imgItem = document.createElement("img");
-      // Handle missing image: Set a default or error image
-      imgItem.src = doctor.imgDoctor || "https://via.placeholder.com/150"; // Placeholder image
+      imgItem.src = doctor.imgDoctor || "https://via.placeholder.com/150"; 
       imgItem.alt = doctor.nameDoctor + doctor.imgDoctor;
-      const divItem = document.createElement("div"); // Optional for styling
-
+      const divItem = document.createElement("div"); 
       divItem.className = "imageDiv";
       divItem.appendChild(imgItem);
       const paragraphItem = document.createElement("p");
@@ -181,18 +161,11 @@ async function updateSearchResult(listDoctorsIds) {
   });
 }
 
-
-
 async function showAllDoctors() {
   const doctors = await fetchDoctorsInfo();
-  let allDoctorsList = [];
-  doctors.forEach((doctor) => {
-    allDoctorsList.push(doctor.idDoctor);
-  });
+  const allDoctorsList = doctors.map((doctor) => doctor.idDoctor);
   updateSearchResult(allDoctorsList);
 }
 
-// call the function immediately after the page is loaded
 document.addEventListener("DOMContentLoaded", updateDropdowns);
 document.addEventListener("DOMContentLoaded", showAllDoctors);
-// document.addEventListener("DOMContentLoaded", updateSearchResult(["6670a64b72c0f7854f9832ce", "6670a64b72c0f7854f9832cf", "6670a64b72c0f7854f9832d0"]));
