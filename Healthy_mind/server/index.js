@@ -93,6 +93,7 @@ app.post("/api/getUserInfoById", async (req, res) => {
 });
 
 // If user exists
+// By Eliyahu
 app.post("/api/isUserExists", async (req, res) => {
   try {
     const { userName, password } = req.body;
