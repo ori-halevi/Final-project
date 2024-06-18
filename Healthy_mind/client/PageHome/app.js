@@ -104,7 +104,7 @@ async function updateSearchResult(listDoctorsIds) {
       const listItem = document.createElement("li");
       listItem.appendChild(divItem);
       listItem.addEventListener("click", () => {
-        window.location.href = `../PageDoctorAbout/index.html?userId=${doctor.idDoctor}`;
+        window.location.href = `../PageDoctorAbout/index.html?doctorId=${doctor.idDoctor}`;
       });
       doctorsList.appendChild(listItem);
     } else {

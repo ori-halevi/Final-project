@@ -9,15 +9,16 @@ function getQueryParams() {
   return params;
 }
 
+// this function will be called when the page is loaded and 
 document.addEventListener("DOMContentLoaded", function () {
   const params = getQueryParams();
   const contentDiv = document.getElementById("content");
-  console.log(params.doctorId);
   if (params.doctorId) {
-    console.log("here is content");
+    console.log("Page been addressed");
+    revealDoctorInfo(params.doctorId);
     contentDiv.innerHTML = `<h2>Welcome, User ${params.doctorId}</h2>`;
   } else {
-    console.log("sdsdsddcwef");
+    console.log("Page not addressed");
     contentDiv.innerHTML = `<h2>Welcome, Guest</h2>`;
   }
 });
@@ -40,16 +41,79 @@ async function fetchDoctorInfo(doctorId) {
     }
 
     const data = await response.json();
-    // console.log("Doctor Info:", data);
+    console.log("Doctor Info:", data);
+    return data;
   } catch (error) {
     console.error("Fetch failed:", error);
   }
 }
 
-document.addEventListener(
-  "DOMContentLoaded",
-  fetchDoctorInfo("6671261031493c86e4e30dc1")
-);
+
+
+
+const meetDr = document.getElementById("meet-dr");
+const doctorName = document.getElementById("doctor-name");
+const doctorPicture = document.getElementById("doctor-picture");
+const doctorSpecialzation = document.getElementById("doctor-specialization");
+const doctorExperience = document.getElementById("doctor-experience");
+const doctorLanguages = document.getElementById("doctor-languages");
+const MonFriWorkingHours = document.getElementById("mon-fri-working-hours");
+const saturdayWorkingHours = document.getElementById("saturday-working-hours");
+const doctorSpecialization = document.getElementById("doctor-specialization");
+
+async function revealDoctorInfo(doctorId) {
+  const doctorInfo = await fetchDoctorInfo(doctorId);
+  doctorPicture.src = doctorInfo.image;
+  
+  
+
+  doctorSpecialization.innerHTML = " <strong>" + "Specialization: " + "</strong>";
+  doctorInfo.specialty.forEach((specialty) => {
+    doctorSpecialization.innerHTML +=  " " + specialty + ",";
+  });
+
+  doctorLanguages.innerHTML = " <strong>" + "Languages: " + "</strong>";
+  doctorInfo.additional_details.languages.forEach((language) => {
+    doctorLanguages.innerHTML +=  " " + language + ",";
+  });
+
+  meetDr.innerHTML = `MEET ${doctorInfo.full_name}`
+  
+  doctorName.innerHTML = doctorInfo.full_name;
+
+  doctorExperience.innerHTML = " <strong>" + "Experience: " + "</strong>";
+  doctorExperience.innerHTML +=  doctorInfo.additional_details.experience ;
+
+
+  MonFriWorkingHours.innerHTML = " <strong>" + "Monday - Friday: " + "</strong>";
+  MonFriWorkingHours.innerHTML +=  `${doctorInfo.working_hours.Monday_Friday.from} - ${doctorInfo.working_hours.Monday_Friday.to}`;
+
+  saturdayWorkingHours.innerHTML = " <strong>" + "Saturday Working Hours: " + "</strong>";
+  saturdayWorkingHours.innerHTML += `${doctorInfo.working_hours.Saturday.from} - ${doctorInfo.working_hours.Saturday.to}`;
+
+  // const doctorLanguages = document.getElementById("doctor-languages");
+  // doctorLanguages.innerHTML = " <strong>" + "Languages: " + "</strong>";
+  // doctorLanguages.innerHTML +=  doctorInfo.additional_details.languages;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 async function fetchUserInfo(userId) {
   try {
