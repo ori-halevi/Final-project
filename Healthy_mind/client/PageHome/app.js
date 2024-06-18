@@ -10,7 +10,6 @@ async function fetchDoctorsInfo() {
   }
 }
 
-
 // A function that updates the dropdown list on the page with the information we received from the server
 async function updateDropdowns() {
   const doctors = await fetchDoctorsInfo();
@@ -24,40 +23,38 @@ async function updateDropdowns() {
     doctorsNamesList.appendChild(listItem);
   });
 
-
-
   // Updating the list of specialties in the specialties dropdown
-  const doctorsSpecialtiesList = document.getElementById("doctors-specialties-list");
+  const doctorsSpecialtiesList = document.getElementById(
+    "doctors-specialties-list"
+  );
   doctorsSpecialtiesList.innerHTML = ""; // ניקוי הרשימה הקיימת קודם
 
   // Assuming doctors is the array of doctors received from the server
   let specialtiesSet = new Set(); // Set to store unique specialties
-
-  doctors.forEach((doctor) => {
-    doctor.specialtyDoctor.forEach((specialty) => {
+  doctors.forEach(async (doctor) => {
+    await doctor.specialtyDoctor.forEach((specialty) => {
       specialtiesSet.add(specialty);
     });
   });
-
   specialtiesSet.forEach((specialty) => {
-    const option = document.createElement("option");
-    option.textContent = specialty;
-    option.value = specialty;
-    doctorsSpecialtiesList.appendChild(option);
+    const listItem = document.createElement("li");
+    listItem.textContent = specialty;
+    doctorsSpecialtiesList.appendChild(listItem);
   });
-
-
 
   // Updating the list of cities in the cities dropdown
   const doctorsCityList = document.getElementById("doctors-city-list");
   doctorsCityList.innerHTML = ""; // ניקוי הרשימה הקיימת קודם
-  doctors.forEach((doctor) => {
+  let citiesSet = new Set(); // Set to store unique cities
+  await doctors.forEach(async (doctor) => {
+      citiesSet.add(doctor.adrressDoctor);
+    });
+  
+  await citiesSet.forEach((city) => {
     const listItem = document.createElement("li");
-    listItem.textContent = doctor.adrressDoctor;
+    listItem.textContent = city;
     doctorsCityList.appendChild(listItem);
   });
-
-
 
   // Updating the list of languages in the languages dropdown
   const doctorsLanguageList = document.getElementById("doctors-language-list");
@@ -73,19 +70,14 @@ async function updateDropdowns() {
   });
 
   languagesSet.forEach((Language) => {
-    const option = document.createElement("option");
-    option.textContent = Language;
-    option.value = Language;
-    doctorsLanguageList.appendChild(option);
+    const listItem = document.createElement("li");
+    listItem.textContent = Language;
+    listItem.value = Language;
+    doctorsLanguageList.appendChild(listItem);
   });
 }
 
-
-
-
-
 async function updateSearchResult(listDoctorsIds) {
-  console.log(listDoctorsIds);
 
   const doctors = await fetchDoctorsInfo();
 
@@ -96,8 +88,8 @@ async function updateSearchResult(listDoctorsIds) {
   listDoctorsIds.forEach((doctorId) => {
     const doctor = doctors.find((doctor) => doctor.idDoctor === doctorId);
 
-    if (doctor) { // Check if doctor exists before accessing properties
-      console.log(doctor.imgDoctor);
+    if (doctor) {
+      // Check if doctor exists before accessing properties
 
       const imgItem = document.createElement("img");
       // Handle missing image: Set a default or error image
@@ -105,7 +97,7 @@ async function updateSearchResult(listDoctorsIds) {
       imgItem.alt = doctor.nameDoctor + doctor.imgDoctor;
       const divItem = document.createElement("div"); // Optional for styling
 
-      divItem.className = "imageDiv"
+      divItem.className = "imageDiv";
       divItem.appendChild(imgItem);
       const paragraphItem = document.createElement("p");
       paragraphItem.textContent = doctor.experienceDoctor;
@@ -113,9 +105,7 @@ async function updateSearchResult(listDoctorsIds) {
       const listItem = document.createElement("li");
       listItem.appendChild(divItem);
       listItem.addEventListener("click", (event) => {
-        console.log(doctor.idDoctor);
       });
-
 
       doctorsList.appendChild(listItem);
     } else {
@@ -123,10 +113,6 @@ async function updateSearchResult(listDoctorsIds) {
     }
   });
 }
-
-
-
-
 
 async function showAllDoctors() {
   const doctors = await fetchDoctorsInfo();
@@ -137,26 +123,7 @@ async function showAllDoctors() {
   updateSearchResult(allDoctorsList);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // call the function immediately after the page is loaded
 document.addEventListener("DOMContentLoaded", updateDropdowns);
 document.addEventListener("DOMContentLoaded", showAllDoctors);
 // document.addEventListener("DOMContentLoaded", updateSearchResult(["6670a64b72c0f7854f9832ce", "6670a64b72c0f7854f9832cf", "6670a64b72c0f7854f9832d0"]));
-
-
-
