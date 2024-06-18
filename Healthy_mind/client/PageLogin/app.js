@@ -1,7 +1,23 @@
 const password = document.getElementById("password");
 const username = document.getElementById("username");
-const login = document.getElementById("logBtn");
+const loginButton = document.getElementById("logBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  const loginButton = document.getElementById("logBtn");
+  
+  loginButton.addEventListener("click", (event) => {
+    event.preventDefault(); // למנוע שליחת הטופס באופן רגיל
 
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    
+    console.log("Username:", username);
+    console.log("Password:", password);
+    window.location.href = `../PageHome/index.html?userId=${"test"}`;
+    // אפשר להוסיף פה קוד כדי לשלוח את המידע לשרת או לעבד אותו בצורה אחרת
+  });
+});
+
+console.log("Asdasd");
 async function fetchUserInfo(username, password) {
   try {
     const response = await fetch("http://localhost:8080/api/isUserExists", {
@@ -25,11 +41,7 @@ async function fetchUserInfo(username, password) {
 }
 
 // const order = login.onclick;
-login.addEventListener("click", () => {
-  window.location.href = `../PageHome/index.html?userId=${'test'}`;
-});
-
 
 console.log("hello");
 
-fetchUserInfo(ori, 11233);
+// fetchUserInfo(ori, 11233);
