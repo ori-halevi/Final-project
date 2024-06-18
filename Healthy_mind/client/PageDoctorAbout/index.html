@@ -1,69 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dr. John Doe - Serenity Mental Health Clinic</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-
-<div class="container">
-    <header>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
         <h1>Meet Dr. John Doe</h1>
-    </header>
+      </header>
 
-    <section class="doctor-info">
+      <section class="doctor-info">
         <h2>Dr. John Doe</h2>
-        <img src="../RESOURCES/Images/Background/רופא.png" alt="Dr. John Doe" class="doctor-photo">
+        <img
+          src="../RESOURCES/Images/Background/רופא.png"
+          alt="Dr. John Doe"
+          class="doctor-photo"
+        />
         <p><strong>Specialization:</strong> Clinical Psychology</p>
-        <p><strong>Experience:</strong> 15 years in the field of mental health</p>
-    </section>
+        <p>
+          <strong>Experience:</strong> 15 years in the field of mental health
+        </p>
+      </section>
 
-    <section class="working-hours">
+      <section class="working-hours">
         <h2>Working Hours</h2>
         <p><strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM</p>
         <p><strong>Saturday:</strong> 10:00 AM - 2:00 PM</p>
         <p><strong>Sunday:</strong> Closed</p>
-    </section>
+      </section>
 
-    <section class="appointment">
+      <section class="appointment">
         <h2>Book an Appointment</h2>
         <form>
-            <label for="appointment-date">Choose a date:</label>
-            <input type="date" id="appointment-date" name="appointment-date" required>
-            
-            <label for="appointment-time">Choose a time:</label>
-            <select id="appointment-time" name="appointment-time" required>
-                <option value="9:00 AM">9:00 AM</option>
-                <option value="10:00 AM">10:00 AM</option>
-                <option value="11:00 AM">11:00 AM</option>
-                <option value="12:00 PM">12:00 PM</option>
-                <option value="1:00 PM">1:00 PM</option>
-                <option value="2:00 PM">2:00 PM</option>
-                <option value="3:00 PM">3:00 PM</option>
-                <option value="4:00 PM">4:00 PM</option>
-            </select>
+          <label for="appointment-date">Choose a date:</label>
+          <input
+            type="date"
+            id="appointment-date"
+            name="appointment-date"
+            required
+          />
 
-            <button type="submit">Submit</button>
+          <label for="appointment-time">Choose a time:</label>
+          <select id="appointment-time" name="appointment-time" required>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+          </select>
+
+          <button type="submit">Submit</button>
         </form>
-    </section>
+      </section>
 
-    <section class="location">
+      <section class="location">
         <h2>Our Location</h2>
-        <img src="../RESOURCES/Images/Background/מרפאה לדוג.webp" alt="Serenity Mental Health Clinic" class="clinic-photo">
+        <img
+          src="../RESOURCES/Images/Background/מרפאה לדוג.webp"
+          alt="Serenity Mental Health Clinic"
+          class="clinic-photo"
+        />
         <p>123 Wellness Avenue</p>
         <p>Mindville, XY 45678</p>
         <p><strong>Phone:</strong> (123) 456-7890</p>
         <p><strong>Email:</strong> contact@serenityclinic.com</p>
-    </section>
+      </section>
 
-    <section class="testimonials">
+      <section class="testimonials">
         <h2>Testimonials</h2>
-        <blockquote>"Dr. Doe's care and expertise have been life-changing. His approach is compassionate and effective." - A grateful patient</blockquote>
-        <blockquote>"I highly recommend Dr. John Doe. His professionalism and dedication are unmatched." - Another satisfied patient</blockquote>
-    </section>
-</div>
-
-</body>
+        <blockquote>
+          "Dr. Doe's care and expertise have been life-changing. His approach is
+          compassionate and effective." - A grateful patient
+        </blockquote>
+        <blockquote>
+          "I highly recommend Dr. John Doe. His professionalism and dedication
+          are unmatched." - Another satisfied patient
+        </blockquote>
+      </section>
+    </div>
+    <script src="./app.js"></script>
+  </body>
 </html>
