@@ -8,7 +8,8 @@ async function fetchDoctorInfo(doctorId) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ doctorId }),
-      });
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -16,10 +17,10 @@ async function fetchDoctorInfo(doctorId) {
 
     const data = await response.json();
     // console.log("Doctor Info:", data);
-
   } catch (error) {
     console.error("Fetch failed:", error);
-  }}
+  }
+}
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -42,10 +43,10 @@ async function fetchUserInfo(userId) {
 
     const data = await response.json();
     // console.log("User Info:", data);
-  
   } catch (error) {
     console.error("Fetch failed:", error);
-  }}
+  }
+}
 
 document.addEventListener(
   "DOMContentLoaded",
