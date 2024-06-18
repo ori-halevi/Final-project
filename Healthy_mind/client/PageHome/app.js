@@ -104,6 +104,7 @@ async function updateSearchResult(listDoctorsIds) {
       imgItem.src = doctor.imgDoctor || "https://via.placeholder.com/150"; // Placeholder image
       imgItem.alt = doctor.nameDoctor + doctor.imgDoctor;
       const divItem = document.createElement("div"); // Optional for styling
+
       divItem.className = "imageDiv"
       divItem.appendChild(imgItem);
       const paragraphItem = document.createElement("p");
@@ -111,6 +112,9 @@ async function updateSearchResult(listDoctorsIds) {
       divItem.appendChild(paragraphItem);
       const listItem = document.createElement("li");
       listItem.appendChild(divItem);
+      listItem.addEventListener("click", (event) => {
+        console.log(doctor.idDoctor);
+      });
 
 
       doctorsList.appendChild(listItem);
