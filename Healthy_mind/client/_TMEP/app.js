@@ -33,3 +33,30 @@ document.getElementById('appointment-form').addEventListener('submit', async (ev
     }
   });
   
+
+// פונקציה להביא את המידע של המשתמש מהשרת על פי מזהה
+  async function fetchUserInfo(userId) {
+    try {
+      const response = await fetch("http://localhost:8080/api/getUserInfoById", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId }),
+      });
+      // console.log(response);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+  
+      const data = await response.json();
+      // console.log("User Info:", data);
+    } catch (error) {
+      console.error("Fetch failed:", error);
+    }
+  }
+  
+  document.addEventListener(
+    "DOMContentLoaded",
+    fetchUserInfo("666eeb05340d469f58628571")
+  );
