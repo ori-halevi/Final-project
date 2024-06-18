@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 // GET all Doctors Info
+// By Eliyahu and Ori
 app.get("/api/doctorsInfo", async (req, res) => {
   try {
     let finalReturen = [];
@@ -37,6 +38,7 @@ app.get("/api/doctorsInfo", async (req, res) => {
 });
 
 // POST a new appointment
+// By Ori
 app.post("/api/appointments", async (req, res) => {
   try {
     const { doctorId, userId, date } = req.body;
@@ -65,87 +67,28 @@ app.post("/api/appointments", async (req, res) => {
 });
 
 // GET doctor infomartion by id
+// By Eliyahu and Ori
 app.post("/api/getDoctorInfoById", async (req, res) => {
   try {
-    console.log("test1");
     const { doctorId } = req.body;
-    console.log(doctorId);
-
-    const info = await dbDoctors.getDoctorById(doctorId);
-    if (!info) return res.status(404).send();
-    res.send(info);
+    const infod = await dbDoctors.getDoctorById(doctorId);
+    if (!infod) return res.status(404).send();
+    res.send(infod);
   } catch (error) {
     res.status(500).send();
   }
 });
 
-// POST a new car
-app.post("/api/teslas/:apointment", async (req, res) => {
+// GET user infomartion by id
+// By Eliyahu and Ori
+app.post("/api/getUserInfoById", async (req, res) => {
   try {
-    const car = await db.createCar(req.body);
-    res.status(201).send(car);
+    const { userId } = req.body;
+    const infou = await dbUsers.getUserById(userId);
+    if (!infou) return res.status(404).send();
+    res.send(infou);
   } catch (error) {
     res.status(500).send();
-  }
-});
-
-// PUT (update) a car by id
-app.put("/api/teslas/:id", async (req, res) => {
-  try {
-    const result = await db.updateCarName(req.params.id, req.body.name);
-    if (!result) return res.status(404).send();
-    res.status(204).send();
-  } catch (error) {
-    console.log(error);
-    res.status(500).send();
-  }
-});
-
-// DELETE a car by id
-app.delete("/api/teslas/:id", async (req, res) => {
-  try {
-    const result = await db.deleteCar(req.params.id);
-    if (!result) return res.status(404).send();
-    res.status(204).send();
-  } catch (error) {
-    console.log(error);
-    res.status(500).send();
-  }
-});
-
-const listContacts = [
-  { Ori: "0543351321" },
-  { Moshe: "0543265143" },
-  { David: "0553348745" },
-];
-
-app.get("/", (req, res) => {
-  res.send();
-  res.send(listContacts);
-  res.send("Welcome to our JSON server!");
-});
-
-app.get("/contacts", (req, res) => {
-  res.json(listContacts);
-});
-
-app.get("/contacts/:n", (req, res) => {
-  const n = req.params.n;
-  if (n >= listContacts.length) {
-    res.send("Contact out of range!");
-  } else {
-    res.send(listContacts[n]);
-  }
-});
-
-app.post("/contacts", (res, req) => {
-  const name = req.params.name;
-  const number = req.params.number;
-  if (!(number.length === 10)) {
-    res.send("This number is not valid!");
-  } else {
-    listContacts[name] = number;
-    res.json(listContacts);
   }
 });
 

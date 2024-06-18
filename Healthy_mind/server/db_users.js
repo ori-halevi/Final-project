@@ -12,7 +12,7 @@ async function main() {
   }
 }
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   full_name: { type: String, required: true },
   id_number: { type: Number, required: true, unique: true },
   password: { type: String, required: true },
@@ -25,15 +25,13 @@ const userSchema = new mongoose.Schema({
   },
   appointments: [
     {
-      doctorId: { type: mongoose.Schema.Types.ObjectId, required: true },
+      doctorId: { type: Schema.Types.ObjectId, required: true },
       date: { type: Date, required: true },
     },
   ],
 });
 
-const User = mongoose.model("User", userSchema);
-
-module.exports = User;
+const User = mongoose.model("users", userSchema);
 
 async function newUserAppointment(userId, appointmentDetails) {
   const result = await User.updateOne(
@@ -49,7 +47,6 @@ async function newUserAppointment(userId, appointmentDetails) {
   );
   return result.modifiedCount === 1;
 }
-
 
 async function getUsers() {
   const result = await User.find();

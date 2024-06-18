@@ -12,8 +12,7 @@ async function main() {
   }
 }
 
-
-const doctorSchema = new mongoose.Schema({
+const doctorSchema = new Schema({
   full_name: { type: String, required: true },
   gender: { type: String, required: true },
   image: { type: String, required: true },
