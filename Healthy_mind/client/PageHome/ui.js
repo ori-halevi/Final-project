@@ -46,8 +46,8 @@ doctorsNamesSearchBoxInput.addEventListener("input", function () {
 // By ori, this is the function that is called when the user clicks on a doctor name in the list.
 doctorsNamesList.addEventListener("click", function (e) {
   if (e.target && e.target.nodeName == "LI") {
-    document.getElementById("doctors-names-dropdown-button").textContent =
-      e.target.textContent;
+    doctorsNamesDropdownButton.textContent = e.target.outerText
+    ;
     doctorsNamesDropdownSuggestionsDiv.style.display = "none";
   }
 });
@@ -62,8 +62,6 @@ doctorsNamesDropdownButton.addEventListener("click", function () {
 });
 
 // END OF DOCTORS DROPDOWN BUTTON
-
-
 
 // START OF SPECIALTIES DROPDOWN BUTTON
 
@@ -85,7 +83,8 @@ specialtiesSearchBoxInput.addEventListener("input", function () {
 // This is the function that is called when the user clicks on a specialty in the list.
 specialtiesList.addEventListener("click", function (e) {
   if (e.target && e.target.nodeName == "LI") {
-    specialtiesDropdownButton.textContent = e.target.textContent;
+    specialtiesDropdownButton.textContent = e.target.outerText
+;
     specialtiesDropdownSuggestionsDiv.style.display = "none";
   }
 });
@@ -109,11 +108,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
-
 // END OF CATEGORIES DROPDOWN BUTTON
-
-
-
 
 // By ori, this is the function that is called when the user clicks anywhere in the document.
 document.addEventListener("click", function (e) {
