@@ -60,6 +60,15 @@ function updatePageToUser(userId, username) {
   });
   showAllDoctors(userId) 
 }
+// resert page home
+function resertPageToNull() {
+  const logoutButton = user_LogOut.querySelector("button");
+  logoutButton.textContent = '';
+  logoutButton.addEventListener("click", () => {
+    window.location.href = `../PersonalArea/index.html?userId=${'login'}`;
+  });
+  // showAllDoctors(null) 
+}
 
 // באיחוד פונקציה זו עושה בקשת fetch לשרת כדי לקבל את רשימת הרופאים
 async function fetchDoctorsInfo() {

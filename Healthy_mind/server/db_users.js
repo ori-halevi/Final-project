@@ -34,18 +34,32 @@ const userSchema = new Schema({
 const User = mongoose.model("users", userSchema);
 
 async function newUserAppointment(userId, appointmentDetails) {
-  const result = await User.updateOne(
-    { _id: userId },
-    {
-      $push: {
-        appointments: {
-          doctorId: appointmentDetails.doctorId,
-          date: appointmentDetails.date,
-        },
-      },
+  try {
+    // console.log("Attempting to add new appointment...");
+    // console.log("Doctor ID:", doctorId);
+    // console.log("Appointment details:", appointmentDetails);
+    const newOb = {
+      doctorId: new mongoose.Types.ObjectId(appointmentDetails.doctorId), 
+      date: new Date(appointmentDetails.date),
     }
-  );
-  return result.modifiedCount === 1;
+    console.log("uesr: " + newOb);
+    const result = await User.updateOne(
+      { _id: userId },
+      { $push: { appointments: newOb } }
+    );
+
+    // console.log("Result:", result);
+    
+    return result.modifiedCount === 1;
+  } catch (error) {
+    console.error("Error adding new appointment:", error);
+    return false;
+  }
+}
+
+async function getUsers() {
+  const result = await User.find();
+  return result;
 }
 
 async function getUsers() {

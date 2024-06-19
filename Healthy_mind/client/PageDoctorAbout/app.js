@@ -18,9 +18,8 @@ function getQueryParams() {
   const urlParams = new URLSearchParams(queryString);
   for (const [key, value] of urlParams) {
     params[key] = value;
-    console.log("key: " + key + " value: " + value);
+    // console.log("key: " + key + " value: " + value);
   }
-  console.log(params);
   return params;
 }
 
@@ -28,13 +27,11 @@ function getQueryParams() {
 document.addEventListener("DOMContentLoaded", function () {
   const params = getQueryParams();
   const contentDiv = document.getElementById("content");
-  console.log(params);
-  console.log("params");
   if (params.doctorId) {
-    console.log("Page been addressed");
+    // console.log("Page been addressed");
     revealDoctorInfo(params.doctorId);
   } else {
-    console.log("Page not addressed");
+    // console.log("Page not addressed");
   }
 });
 
@@ -57,7 +54,6 @@ async function fetchDoctorInfo(doctorId) {
     }
 
     const data = await response.json();
-    console.log("Doctor Info:", data);
     return data;
   } catch (error) {
     console.error("Fetch failed:", error);
@@ -116,22 +112,48 @@ async function revealDoctorInfo(doctorId) {
   <strong>year: </strong>${doctorInfo.additional_details.education[1].year}
 `;
 }
-function getData() {
-  const date = document.getElementById("appointment-date");
-  const time = document.getElementById("appointment-time");
-  return "date, time";
+function convertTime12to24(time12h) {
+  // פצוץ את הזמן לתאים של שעה ודקה
+  var timeParts = time12h.split(":");
+  var hour = parseInt(timeParts[0], 10);
+  var minute = parseInt(timeParts[1].split(" ")[0], 10);
+  var ampm = timeParts[1].split(" ")[1];
+
+  // המרת שעה מפורמט 12 שעות ל־24 שעות
+  if (ampm === "PM" && hour < 12) {
+      hour += 12;
+  } else if (ampm === "AM" && hour === 12) {
+      hour = 0;
+  }
+
+  // יצירת מחרוזת חדשה בפורמט 24 שעות
+  var formattedTime = hour.toString().padStart(2, "0") + ":" + minute.toString().padStart(2, "0") + ":00";
+  return formattedTime;
+};
+function convertTimeToDate(timeString, dateString) {
+  var dateTimeString = dateString + "T" + timeString;
+  var dateObject = new Date(dateTimeString);
+  var formattedDateTimeString = dateObject.toISOString();
+  return formattedDateTimeString;
+};
+
+function getAppointmentTimeFromUserInput() {
+  let time = document.getElementById("appointment-time").value;
+  let date = document.getElementById("appointment-date").value;
+  time = convertTimeToDate(convertTime12to24(time), date);
+  return time;
 }
 
 async function sendAppointmentData() {
   try {
-    const patientId = await getPageDoctorId();
+    const date = getAppointmentTimeFromUserInput();
     const doctorId = await getPageUserId();
-    const date = getData();
+    const patientId = await getPageDoctorId();
 
     const data = {
       date,
-      patientId,
       doctorId,
+      patientId,
     };
     console.log(data);
     const response = await fetch("http://localhost:8080/api/updateAppointments", {
@@ -141,7 +163,6 @@ async function sendAppointmentData() {
       },
       body: JSON.stringify(data),
     });
-
     const result = await response.json();
     console.log("Success:", result);
   } catch (error) {
