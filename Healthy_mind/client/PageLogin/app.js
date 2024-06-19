@@ -1,5 +1,6 @@
 const loginButton = document.getElementById("logBtn");
 
+// By Ori 
 async function isUserExistsFunc(username, password) {
   try {
     const response = await fetch("http://localhost:8080/api/isUserExists", {

@@ -10,7 +10,7 @@ const doctorSpecialization = document.getElementById("doctor-specialization");
 const doctorLocation = document.getElementById("doctor-location");
 const doctorEducation1 = document.getElementById("doctor-education-1");
 const doctorEducation2 = document.getElementById("doctor-education-2");
-
+const submitBtn = document.getElementById("submit-btn");
 // this function get prams from the url
 function getQueryParams() {
   const params = {};
@@ -30,9 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const contentDiv = document.getElementById("content");
   console.log(params);
   console.log("params");
-  setTimeout(() => {
-    window.location.href = `../PageDoctorAbout/index.html?doctorId=${doctor.idDoctor}&userId=${userId}`;
-  }, 6000); // דחייה של 2 שניות;
   if (params.doctorId) {
     console.log("Page been addressed");
     revealDoctorInfo(params.doctorId);
@@ -153,7 +150,7 @@ async function sendAppointmentData() {
 }
 async function getPageDoctorId() {
   const params = getQueryParams();
-  if (!params.doctorId === null) {
+  if (!(params.doctorId === null)) {
     return params.doctorId;
   } else {
     console.error("Doctor ID not found in URL parameters");
@@ -162,8 +159,8 @@ async function getPageDoctorId() {
 }
 
 async function getPageUserId() {
-  const params = getQueryParams();
-  if (!params.userId === null) {
+  const params = await getQueryParams();
+  if (!(params.userId === null)) {
     return params.userId;
   } else {
     console.error("User ID not found in URL parameters");
@@ -173,10 +170,11 @@ async function getPageUserId() {
 
 // alert the submit if not login
 // by Elkana
-async function submitConfirm() {
-  if (await getPageUserId() === null) {
+submitBtn.addEventListener("click", async function submitConfirm(event) {
+  event.preventDefault();
+  if ((await getPageUserId()) === null) {
     window.alert("you have to login befor update a meeting");
   } else {
     sendAppointmentData;
   }
-}
+});

@@ -179,7 +179,7 @@ app.post("/api/updateAppointments", async (req, res) => {
       );
       const appointmentUserUpdate = dbUsers.updateOne(
         { _id: patientId }, // Filter user
-        { $set: { appointments:{ patientId: patientId, date: date } } },// Update user  
+        { $set: { appointments:{ doctorId: doctorId, date: date } } },// Update user  
     );
     if (result.nModified > 0) {
       res.status(200).json({ message: 'Appointment updated successfully' });

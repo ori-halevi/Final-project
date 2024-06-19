@@ -25,7 +25,7 @@ const userSchema = new Schema({
   },
   appointments: [
     {
-      doctorId: { type: Schema.Types.ObjectId, required: true },
+      doctorId: { type: mongoose.Schema.Types.ObjectId, required: true },
       date: { type: Date, required: true },
     },
   ],
