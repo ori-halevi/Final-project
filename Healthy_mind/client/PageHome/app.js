@@ -49,6 +49,7 @@ function updatePageToUser(userId, username) {
   loginButton.addEventListener("click", () => {
     window.location.href = `../PersonalArea/index.html?userId=${userId}`;
   });
+  showAllDoctors(userId) 
 }
 
 // באיחוד פונקציה זו עושה בקשת fetch לשרת כדי לקבל את רשימת הרופאים
@@ -188,7 +189,7 @@ async function fetchFilteredDoctors(params) {
     return [];
   }
 }
-async function updateSearchResult(listDoctorsIds) {
+async function updateSearchResult(listDoctorsIds, userId) {
   const doctors = await fetchDoctorsInfo();
 
   const doctorsList = document.getElementById("search-result-list");
@@ -210,7 +211,7 @@ async function updateSearchResult(listDoctorsIds) {
       const listItem = document.createElement("li");
       listItem.appendChild(divItem);
       listItem.addEventListener("click", () => {
-        window.location.href = `../PageDoctorAbout/index.html?doctorId=${doctor.idDoctor}`;
+        window.location.href = `../PageDoctorAbout/index.html?doctorId=${doctor.idDoctor}&userId=${userId}`;
       });
       doctorsList.appendChild(listItem);
     } else {
@@ -219,11 +220,11 @@ async function updateSearchResult(listDoctorsIds) {
   });
 }
 
-async function showAllDoctors() {
+async function showAllDoctors(userId) {
   const doctors = await fetchDoctorsInfo();
   const allDoctorsList = doctors.map((doctor) => doctor.idDoctor);
-  updateSearchResult(allDoctorsList);
+  updateSearchResult(allDoctorsList, userId);
 }
 
 document.addEventListener("DOMContentLoaded", updateDropdowns);
-document.addEventListener("DOMContentLoaded", showAllDoctors);
+document.addEventListener("DOMContentLoaded", showAllDoctors(null));

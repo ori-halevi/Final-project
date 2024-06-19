@@ -101,7 +101,7 @@ button:hover {
 #search-result-list li {
   display: flex;
   font-size: var(--font-size-medium);
-  margin: 30px;
+  margin: 10px;
   height: 700px;
   align-items: center;
   flex-direction: column;

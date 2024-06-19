@@ -18,7 +18,9 @@ function getQueryParams() {
   const urlParams = new URLSearchParams(queryString);
   for (const [key, value] of urlParams) {
     params[key] = value;
+    console.log( 'key: ' + key + ' value: ' + value);
   }
+  console.log(params);
   return params;
 }
 
@@ -117,3 +119,48 @@ async function revealDoctorInfo(doctorId) {
 }
 
 
+async function sendAppointmentData(date) {
+  try {
+      const patientId = await getPageDoctorId();
+      const doctorId = await getPageUserId();
+      
+      const data = {
+          patientId,
+          doctorId,
+          date
+      };
+
+      const response = await fetch('http://localhost:8080/updataAppointments', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+      console.log('Success:', result);
+  } catch (error) {
+      console.error('Error:', error);
+  }
+}
+async function getPageDoctorId() {
+  const params = getQueryParams();
+  if (params.doctorId) {
+    return params.doctorId;
+  } else {
+    console.error("Doctor ID not found in URL parameters");
+    return null;
+  }
+}
+
+
+async function getPageUserId() {
+  const params = getQueryParams();
+  if (params.userId) {
+    return params.userId;
+  } else {
+    console.error("User ID not found in URL parameters");
+    return null;
+  }
+}
