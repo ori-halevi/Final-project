@@ -1,27 +1,15 @@
 const userIdentification = document.getElementById("user-identification");
 
 // פונקציה לקבלת פרמטרים מה-URL
-async function getQueryParams() {
-  const params = {};
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  for (const [key, value] of urlParams) {
-    params[key] = value;
-  }
-  return params;
-}
-
-// פונקציה זו תיקרא כאשר הדף נטען
-// document.addEventListener("DOMContentLoaded", async function () {
-//   const params = await getQueryParams();
-//   const contentDiv = document.getElementById("content");
-//   if (params.userId) {
-//     const userInfo = await fetchUserInfo(params.userId);
-//     updatePageToUser(params.userId, userInfo.full_name);
-//   } else {
-//     // פעולות נוספות אם אין מזהה משתמש
+// async function getQueryParams() {
+//   const params = {};
+//   const queryString = window.location.search;
+//   const urlParams = new URLSearchParams(queryString);
+//   for (const [key, value] of urlParams) {
+//     params[key] = value;
 //   }
-// });
+//   return params;
+// }
 function getQueryParams() {
   const params = {};
   const queryString = window.location.search;
@@ -32,6 +20,18 @@ function getQueryParams() {
   }
   return params;
 }
+// פונקציה זו תיקרא כאשר הדף נטען
+document.addEventListener("DOMContentLoaded", async function () {
+  const params = await getQueryParams();
+  const contentDiv = document.getElementById("content");
+  if (params.userId) {
+    const userInfo = await fetchUserInfo(params.userId);
+    updatePageToUser(params.userId, userInfo.full_name);
+  } else {
+    // פעולות נוספות אם אין מזהה משתמש
+  }
+});
+
 // באיחוד פונקציה זו עושה בקשת fetch לשרת כדי לקבל מידע על המשתמש
 async function fetchUserInfo(userId) {
   try {
@@ -213,10 +213,11 @@ async function getPageUserId() {
 }
 
 searchButton.addEventListener("click", async () => {
-  await console.log("asdasdwef");
+  const params = getQueryParams();
   const filterParams = await getSerchFieldesInfo();
+  console.log(filterParams);
   const listDoctorsIds = await filteredDoctors(filterParams);
-  updateSearchResult(listDoctorsIds, getPageUserId());
+  updateSearchResult(listDoctorsIds, params.userId);
 });
 
 async function updateSearchResult(listDoctorsIds, userId) {
