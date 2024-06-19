@@ -121,21 +121,25 @@ function convertTime12to24(time12h) {
 
   // המרת שעה מפורמט 12 שעות ל־24 שעות
   if (ampm === "PM" && hour < 12) {
-      hour += 12;
+    hour += 12;
   } else if (ampm === "AM" && hour === 12) {
-      hour = 0;
+    hour = 0;
   }
 
   // יצירת מחרוזת חדשה בפורמט 24 שעות
-  var formattedTime = hour.toString().padStart(2, "0") + ":" + minute.toString().padStart(2, "0") + ":00";
+  var formattedTime =
+    hour.toString().padStart(2, "0") +
+    ":" +
+    minute.toString().padStart(2, "0") +
+    ":00";
   return formattedTime;
-};
+}
 function convertTimeToDate(timeString, dateString) {
   var dateTimeString = dateString + "T" + timeString;
   var dateObject = new Date(dateTimeString);
   var formattedDateTimeString = dateObject.toISOString();
   return formattedDateTimeString;
-};
+}
 
 function getAppointmentTimeFromUserInput() {
   let time = document.getElementById("appointment-time").value;
@@ -156,13 +160,16 @@ async function sendAppointmentData() {
       patientId,
     };
     console.log(data);
-    const response = await fetch("http://localhost:8080/api/updateAppointments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "http://localhost:8080/api/updateAppointments",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     const result = await response.json();
     console.log("Success:", result);
   } catch (error) {
@@ -191,24 +198,24 @@ async function getPageUserId() {
 
 // alert the submit if not login
 // by Elkana
-submitBtn.addEventListener("click", async function submitConfirm(event) {
+submitBtn.addEventListener("click", async function (event) {
   event.preventDefault();
-  if ((await getPageUserId()) === null) {
+  if ((await getPageUserId()) === "null") {
     window.alert("you have to login befor update a meeting");
   } else {
+    console.log("asd");
     sendAppointmentData();
-  showSuccessPopup()
+    showSuccessPopup();
   }
 });
 
-
-        // פונקציה להצגת חלון הפופאפ
+// פונקציה להצגת חלון הפופאפ
 function showSuccessPopup() {
-  const popup = document.getElementById('successPopup');
-  popup.style.display = 'block';
+  const popup = document.getElementById("successPopup");
+  popup.style.display = "block";
 
   // הסתרת הפופאפ אחרי 3 שניות
   setTimeout(() => {
-      popup.style.display = 'none';
+    popup.style.display = "none";
   }, 3000);
 }
