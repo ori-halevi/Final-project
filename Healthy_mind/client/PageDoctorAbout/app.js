@@ -112,40 +112,32 @@ async function revealDoctorInfo(doctorId) {
   <strong>year: </strong>${doctorInfo.additional_details.education[1].year}
 `;
 }
-function convertTime12to24(time12h) {
-  // פצוץ את הזמן לתאים של שעה ודקה
-  var timeParts = time12h.split(":");
-  var hour = parseInt(timeParts[0], 10);
-  var minute = parseInt(timeParts[1].split(" ")[0], 10);
-  var ampm = timeParts[1].split(" ")[1];
-
-  // המרת שעה מפורמט 12 שעות ל־24 שעות
-  if (ampm === "PM" && hour < 12) {
-    hour += 12;
-  } else if (ampm === "AM" && hour === 12) {
-    hour = 0;
-  }
-
-  // יצירת מחרוזת חדשה בפורמט 24 שעות
-  var formattedTime =
-    hour.toString().padStart(2, "0") +
-    ":" +
-    minute.toString().padStart(2, "0") +
-    ":00";
-  return formattedTime;
-}
-function convertTimeToDate(timeString, dateString) {
-  var dateTimeString = dateString + "T" + timeString;
-  var dateObject = new Date(dateTimeString);
-  var formattedDateTimeString = dateObject.toISOString();
-  return formattedDateTimeString;
-}
 
 function getAppointmentTimeFromUserInput() {
-  let time = document.getElementById("appointment-time").value;
-  let date = document.getElementById("appointment-date").value;
-  time = convertTimeToDate(convertTime12to24(time), date);
-  return time;
+  const date = document.getElementById("appointment-date").value; // מצפה לפורמט YYYY-MM-DD
+  const time = document.getElementById("appointment-time").value; // מצפה לפורמט כמו "9:00 AM"
+  console.log(date);
+  console.log(time);
+
+  const [timePart, modifier] = String(time).split(" ");
+  let [hours, minutes] = timePart.split(":");
+  
+  if (modifier === 'PM' && hours !== '12') {
+    hours = parseInt(hours, 10) + 12;
+  } else if (modifier === 'AM' && hours === '12') {
+    hours = '00';
+  }
+
+  const dateTimeString = `${date}T${hours}:${minutes}:00`;
+  console.log(dateTimeString);
+  const dateTime = new Date(dateTimeString);
+  console.log(dateTime);
+
+  if (isNaN(dateTime)) {
+    console.error("Invalid date format");
+  }
+
+  return dateTime;
 }
 
 async function sendAppointmentData() {
