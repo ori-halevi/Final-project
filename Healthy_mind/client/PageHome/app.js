@@ -12,17 +12,26 @@ async function getQueryParams() {
 }
 
 // פונקציה זו תיקרא כאשר הדף נטען
-document.addEventListener("DOMContentLoaded", async function () {
-  const params = await getQueryParams();
-  const contentDiv = document.getElementById("content");
-  if (params.userId) {
-    const userInfo = await fetchUserInfo(params.userId);
-    updatePageToUser(params.userId, userInfo.full_name);
-  } else {
-    // פעולות נוספות אם אין מזהה משתמש
+// document.addEventListener("DOMContentLoaded", async function () {
+//   const params = await getQueryParams();
+//   const contentDiv = document.getElementById("content");
+//   if (params.userId) {
+//     const userInfo = await fetchUserInfo(params.userId);
+//     updatePageToUser(params.userId, userInfo.full_name);
+//   } else {
+//     // פעולות נוספות אם אין מזהה משתמש
+//   }
+// });
+function getQueryParams() {
+  const params = {};
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  for (const [key, value] of urlParams) {
+    params[key] = value;
+    console.log("key: " + key + " value: " + value);
   }
-});
-
+  return params;
+}
 // באיחוד פונקציה זו עושה בקשת fetch לשרת כדי לקבל מידע על המשתמש
 async function fetchUserInfo(userId) {
   try {
@@ -143,7 +152,7 @@ const genderDropdown = document.getElementById(
   "doctors-gender-dropdown-button"
 );
 
-searchButton.addEventListener("click", async () => {
+async function getSerchFieldesInfo () {
   const searchParams = {
     name: doctorsNamesDropdown.textContent,
     specialty: specialtiesDropdown.textContent,
@@ -165,30 +174,51 @@ searchButton.addEventListener("click", async () => {
       }
     }
   }
-  const filteredDoctors = await fetchFilteredDoctors(searchParams);
-  updateSearchResult(filteredDoctors);
-});
+  return searchParams;
+};
 // TODO: לתקן כך שבצד לקוח יהיה את החישוב להוצאת המזהה ולא בצד שרת כמו שזה עכשיו, צריך לגזור דברים מצד שרת
-async function fetchFilteredDoctors(params) {
-  try {
-    const response = await fetch("http://localhost:8080/api/filterDoctors", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(params),
-    });
-    console.log(await response.json());
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
+
+
+async function filteredDoctors(filterParams) {
+  const doctors = await fetchDoctorsInfo();
+  const {name, specialtie, city, language, gender} = filterParams
+  const filteredDoctors = doctors.filter((doctor) => {
+    if (name) {
+      return doctor.nameDoctor === name;
     }
-    console.log(await response.json());
-    return await response.json();
-  } catch (error) {
-    console.error("Fetch failed:", error);
-    return [];
+    if (specialtie) {
+      return doctor.specialtyDoctor.includes(specialtie);
+    }
+    if (city) {
+      return doctor.adrressDoctor === city;
+    }
+    if (language) {
+      return doctor.languagesDoctor.includes(language);
+    }
+    if (gender) {
+      return doctor.genderDoctor === gender;
+    }
+    return filteredDoctors;
+  });
+}
+
+async function getPageUserId() {
+  const params = await getQueryParams();
+  if (!(params.userId === null)) {
+    return params.userId;
+  } else {
+    console.error("User ID not found in URL parameters");
+    return null;
   }
 }
+
+searchButton.addEventListener("click", async () => {
+  await console.log("asdasdwef");
+  const filterParams = await getSerchFieldesInfo();
+  const listDoctorsIds = await filteredDoctors(filterParams);
+  updateSearchResult(listDoctorsIds, getPageUserId());
+});
+
 async function updateSearchResult(listDoctorsIds, userId) {
   const doctors = await fetchDoctorsInfo();
 
