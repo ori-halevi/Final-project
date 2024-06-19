@@ -167,7 +167,31 @@ app.post("/api/filterDoctors", async (req, res) => {
   }
 });
 
+//update appointment
+//by Elkana
 
+app.post("/api/updateAppointments", async (req, res) => {
+    const {date, doctorId, patientId} = req.body;
+    try{
+      const appointmentDocUpdate = dbDoctors.updateOne(
+        { _id: doctorId }, // Filter doctor
+        { $set: { appointments:{ patientId: patientId, date: date } } },// Update doctor
+      );
+      const appointmentUserUpdate = dbUsers.updateOne(
+        { _id: patientId }, // Filter user
+        { $set: { appointments:{ patientId: patientId, date: date } } },// Update user  
+    );
+    if (result.nModified > 0) {
+      res.status(200).json({ message: 'Appointment updated successfully' });
+    } 
+    else {
+      res.status(404).json({ message: 'Appointment not found or no changes made' });
+    }
+  } 
+    catch (error) {
+  res.status(500).send(error.message);
+  }
+}),
 
 
 app.listen(port, () => console.log(`Listening on port ${port}...`));
