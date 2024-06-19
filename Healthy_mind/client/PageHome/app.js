@@ -227,30 +227,51 @@ async function updateSearchResult(listDoctorsIds, userId) {
       const imgItem = document.createElement("img");
       imgItem.src = doctor.imgDoctor || "https://via.placeholder.com/150";
       imgItem.alt = doctor.nameDoctor + doctor.imgDoctor;
+      imgItem.className = "doctor-img";
+
+      const nameItem = document.createElement("h3");
+      nameItem.textContent = doctor.nameDoctor;
+      nameItem.className = "doctor-name";
+
+      const experienceItem = document.createElement("p");
+      experienceItem.textContent = "Experience: " + doctor.experienceDoctor;
+      experienceItem.className = "doctor-experience";
+
+      const cityItem = document.createElement("p");
+      cityItem.textContent = "City: " + doctor.adrressDoctor;
+      cityItem.className = "doctor-city";
+
+      const languagesItem = document.createElement("p");
+      languagesItem.textContent = "Languages: " + doctor.languagesDoctor.join(", ");
+      languagesItem.className = "doctor-languages";
+
       const divItem = document.createElement("div");
-      divItem.className = "imageDiv";
+      divItem.className = "doctor-info";
       divItem.appendChild(imgItem);
-      const paragraphItem = document.createElement("p");
-      paragraphItem.textContent = doctor.experienceDoctor;
-      divItem.appendChild(paragraphItem);
+      divItem.appendChild(nameItem);
+      divItem.appendChild(experienceItem);
+      divItem.appendChild(cityItem);
+      divItem.appendChild(languagesItem);
+
       const listItem = document.createElement("li");
       listItem.appendChild(divItem);
       listItem.addEventListener("click", () => {
         window.location.href = `../PageDoctorAbout/index.html?doctorId=${doctor.idDoctor}&userId=${userId}`;
       });
       doctorsList.appendChild(listItem);
+
+      // Reset dropdowns
       doctorsNamesDropdownButton.innerHTML = "<strong>Doctors names</strong>";
       specialtiesDropdownButton.innerHTML = "<strong>Specialties</strong>";
       citiesDropdownButton.innerHTML = "<strong>City</strong>";
       languageDropdownButton.innerHTML = "<strong>Preferred language</strong>";
       genderDropdownButton.innerHTML = "<strong>Gender</strong>";
-      
-
     } else {
       console.warn(`Doctor with ID ${doctorId} not found`);
     }
   });
 }
+
 
 async function showAllDoctors(userId) {
   const doctors = await fetchDoctorsInfo();
