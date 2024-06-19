@@ -18,7 +18,7 @@ function getQueryParams() {
   const urlParams = new URLSearchParams(queryString);
   for (const [key, value] of urlParams) {
     params[key] = value;
-    console.log( 'key: ' + key + ' value: ' + value);
+    console.log("key: " + key + " value: " + value);
   }
   console.log(params);
   return params;
@@ -28,13 +28,16 @@ function getQueryParams() {
 document.addEventListener("DOMContentLoaded", function () {
   const params = getQueryParams();
   const contentDiv = document.getElementById("content");
+  console.log(params);
+  console.log("params");
+  setTimeout(() => {
+    window.location.href = `../PageDoctorAbout/index.html?doctorId=${doctor.idDoctor}&userId=${userId}`;
+  }, 6000); // דחייה של 2 שניות;
   if (params.doctorId) {
     console.log("Page been addressed");
     revealDoctorInfo(params.doctorId);
-    contentDiv.innerHTML = `<h2>Welcome, User ${params.doctorId}</h2>`;
   } else {
     console.log("Page not addressed");
-    contentDiv.innerHTML = `<h2>Welcome, Guest</h2>`;
   }
 });
 
@@ -63,7 +66,6 @@ async function fetchDoctorInfo(doctorId) {
     console.error("Fetch failed:", error);
   }
 }
-
 
 // this function will reveal all the doctor info on the page
 async function revealDoctorInfo(doctorId) {
@@ -117,36 +119,41 @@ async function revealDoctorInfo(doctorId) {
   <strong>year: </strong>${doctorInfo.additional_details.education[1].year}
 `;
 }
+function getData() {
+  const date = document.getElementById("appointment-date");
+  const time = document.getElementById("appointment-time");
+  return date, time;
+}
 
-
-async function sendAppointmentData(date) {
+async function sendAppointmentData() {
   try {
-      const patientId = await getPageDoctorId();
-      const doctorId = await getPageUserId();
-      
-      const data = {
-          patientId,
-          doctorId,
-          date
-      };
+    const patientId = await getPageDoctorId();
+    const doctorId = await getPageUserId();
+    const date = getData();
 
-      const response = await fetch('http://localhost:8080/updataAppointments', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-      });
+    const data = {
+      patientId,
+      doctorId,
+      date,
+    };
 
-      const result = await response.json();
-      console.log('Success:', result);
+    const response = await fetch("http://localhost:8080/updataAppointments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    console.log("Success:", result);
   } catch (error) {
-      console.error('Error:', error);
+    console.error("Error:", error);
   }
 }
 async function getPageDoctorId() {
   const params = getQueryParams();
-  if (params.doctorId) {
+  if (!params.doctorId === null) {
     return params.doctorId;
   } else {
     console.error("Doctor ID not found in URL parameters");
@@ -154,13 +161,22 @@ async function getPageDoctorId() {
   }
 }
 
-
 async function getPageUserId() {
   const params = getQueryParams();
-  if (params.userId) {
+  if (!params.userId === null) {
     return params.userId;
   } else {
     console.error("User ID not found in URL parameters");
     return null;
+  }
+}
+
+// alert the submit if not login
+// by Elkana
+async function submitConfirm() {
+  if (await getPageUserId() === null) {
+    window.alert("you have to login befor update a meeting");
+  } else {
+    sendAppointmentData;
   }
 }
