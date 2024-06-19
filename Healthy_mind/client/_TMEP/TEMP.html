@@ -14,3 +14,51 @@
     </div>
   </div>
 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Message Popup</title>
+    <style>
+        /* סגנונות לחלון הפופאפ */
+        #successPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(0, 255, 0, 0.8); /* צבע רקע ירוק עם שקיפות */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1000;
+        }
+        /* סגנונות לתוכן ההודעה */
+        #successPopup p {
+            margin: 0;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showSuccessPopup()">Show Success Message</button>
+
+
+
+    <script>
+        // פונקציה להצגת חלון הפופאפ
+        function showSuccessPopup() {
+            const popup = document.getElementById('successPopup');
+            popup.style.display = 'block';
+
+            // הסתרת הפופאפ אחרי 3 שניות
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

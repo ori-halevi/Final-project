@@ -119,7 +119,7 @@ async function revealDoctorInfo(doctorId) {
 function getData() {
   const date = document.getElementById("appointment-date");
   const time = document.getElementById("appointment-time");
-  return date, time;
+  return "date, time";
 }
 
 async function sendAppointmentData() {
@@ -129,12 +129,12 @@ async function sendAppointmentData() {
     const date = getData();
 
     const data = {
+      date,
       patientId,
       doctorId,
-      date,
     };
-
-    const response = await fetch("http://localhost:8080/updataAppointments", {
+    console.log(data);
+    const response = await fetch("http://localhost:8080/api/updateAppointments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -175,6 +175,19 @@ submitBtn.addEventListener("click", async function submitConfirm(event) {
   if ((await getPageUserId()) === null) {
     window.alert("you have to login befor update a meeting");
   } else {
-    sendAppointmentData;
+    sendAppointmentData();
+  showSuccessPopup()
   }
 });
+
+
+        // פונקציה להצגת חלון הפופאפ
+function showSuccessPopup() {
+  const popup = document.getElementById('successPopup');
+  popup.style.display = 'block';
+
+  // הסתרת הפופאפ אחרי 3 שניות
+  setTimeout(() => {
+      popup.style.display = 'none';
+  }, 3000);
+}
