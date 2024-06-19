@@ -32,6 +32,16 @@ const genderList = document.getElementById("doctors-gender-list");
 const genderDropdownButton = document.getElementById("doctors-gender-dropdown-button");
 const genderDropdownMainDiv = document.getElementById("gender-dropdown-main-div");
 
+const allDropdownButtons = [
+  doctorsNamesDropdownButton,
+  specialtiesDropdownButton,
+  citiesDropdownButton,
+  languageDropdownButton,
+  genderDropdownButton
+ ];
+
+
+
 // פונקציות כלליות לסינון רשימות
 function filterList(searchBoxInput, list) {
   let filter = searchBoxInput.value.toLowerCase();
@@ -43,9 +53,13 @@ function filterList(searchBoxInput, list) {
   }
 }
 
+
+
 function selectItemFromList(list, button, suggestionsDiv) {
   list.addEventListener("click", function (e) {
     if (e.target && e.target.nodeName == "LI") {
+      
+      button.style.backgroundColor = "lightgreen";
       button.textContent = e.target.outerText;
       suggestionsDiv.style.display = "none";
     }
@@ -62,6 +76,11 @@ function closeDropdownOutsideClick(mainDiv, suggestionsDiv) {
       suggestionsDiv.style.display = "none";
     }
   });
+}
+function resetButtonColors() {
+  allDropdownButtons.forEach(button => {
+    button.style.backgroundColor = "#f4f4f4";
+    });
 }
 
 // הפעלת הפונקציות עבור דוקטורים
@@ -110,3 +129,5 @@ genderDropdownButton.addEventListener("click", function () {
   toggleDropdown(genderDropdownSuggestionsDiv);
 });
 closeDropdownOutsideClick(genderDropdownMainDiv, genderDropdownSuggestionsDiv);
+
+searchButton.addEventListener("click", resetButtonColors);

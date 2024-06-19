@@ -120,52 +120,7 @@ app.post("/api/isUserExists", async (req, res) => {
     res.status(500).send({ error: "Internal Server Error" });
   }
 });
-// פונקציה זו מקבלת את הפרמטרים שנשלחו מהלקוח ומחזירה רשימת רופאים מעודכנת על פי החיפוש
-// פונקציה זו מקבלת את רשימת הרופאים ואת הפרמטרים שנשלחו מהלקוח ומחזירה רשימת רופאים מעודכנת על פי החיפוש
-// פונקציה זו מקבלת את רשימת הרופאים ואת הפרמטרים שנשלחו מהלקוח ומחזירה רשימת רופאים מעודכנת על פי החיפוש
-async function filterDoctors(params) {
-  const doctors = await dbDoctors.getDoctors();
-  // אם רשימת הרופאים לא נמצאה או ריקה, תחזיר רשימה ריקה
-  if (!doctors || doctors.length === 0) {
-      return [];
-  }
 
-  // סנן את רשימת הרופאים על פי הפרמטרים שנשלחו מהלקוח
-  const filteredDoctors = doctors.filter((doctor) => {
-      return (
-          (!params.name || doctor.full_name.toLowerCase().includes(params.name.toLowerCase())) &&
-          (!params.specialty || doctor.specialty.toLowerCase().includes(params.specialty.toLowerCase())) &&
-          (!params.city || doctor.contact_information.address.city.toLowerCase().includes(params.city.toLowerCase())) &&
-          (!params.language || doctor.additional_details.languages.toLowerCase().includes(params.language.toLowerCase())) &&
-          (!params.gender || doctor.gender.toLowerCase() === params.gender.toLowerCase())
-      );
-  });
-
-  // החזר את רשימת הרופאים שעברו את הסינון
-  return filteredDoctors;
-}
-
-
-// POST filtered doctors based on search parameters
-// By [Your Name]
-app.post("/api/filterDoctors", async (req, res) => {
-  try {
-    const { name, specialty, city, language, gender } = req.body;
-    // Call the filterDoctors function with the provided parameters
-    const filteredDoctors = await filterDoctors({
-      name,
-      specialty,
-      city,
-      language,
-      gender,
-    });
-    // Return the filtered list of doctors to the client
-    res.status(200).send(filteredDoctors);
-  } catch (error) {
-    console.error("Error filtering doctors:", error);
-    res.status(500).send({ error: "Internal Server Error" });
-  }
-});
 
 //update appointment
 //by Elkana

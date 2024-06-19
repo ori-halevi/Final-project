@@ -16,7 +16,7 @@ function getQueryParams() {
   const urlParams = new URLSearchParams(queryString);
   for (const [key, value] of urlParams) {
     params[key] = value;
-    console.log("key: " + key + " value: " + value);
+    // console.log("key: " + key + " value: " + value);
   }
   return params;
 }
@@ -154,21 +154,21 @@ const genderDropdown = document.getElementById(
 
 async function getSerchFieldesInfo () {
   const searchParams = {
-    name: doctorsNamesDropdown.textContent,
-    specialty: specialtiesDropdown.textContent,
-    city: cityDropdown.textContent,
-    language: languageDropdown.textContent,
-    gender: genderDropdown.textContent,
+    nameDoctor: doctorsNamesDropdown.textContent,
+    specialtyDoctor: specialtiesDropdown.textContent,
+    adrressDoctor: cityDropdown.textContent,
+    languagesDoctor: languageDropdown.textContent,
+    genderDoctor: genderDropdown.textContent,
   };
   for (const key in searchParams) {
     if (searchParams.hasOwnProperty(key)) {
       const value = searchParams[key];
       if (
         value === "Doctors names" ||
-        value === "specialties" ||
-        value === "city" ||
-        value === "language" ||
-        value === "gender"
+        value === "Specialties" ||
+        value === "City" ||
+        value === "Preferred language" ||
+        value === "Gender"
       ) {
         searchParams[key] = null;
       }
@@ -179,27 +179,21 @@ async function getSerchFieldesInfo () {
 // TODO: לתקן כך שבצד לקוח יהיה את החישוב להוצאת המזהה ולא בצד שרת כמו שזה עכשיו, צריך לגזור דברים מצד שרת
 
 
+// By Ori, This function updates the list of doctors on the page ocording to the search parameters
 async function filteredDoctors(filterParams) {
   const doctors = await fetchDoctorsInfo();
-  const {name, specialtie, city, language, gender} = filterParams
-  const filteredDoctors = doctors.filter((doctor) => {
-    if (name) {
-      return doctor.nameDoctor === name;
-    }
-    if (specialtie) {
-      return doctor.specialtyDoctor.includes(specialtie);
-    }
-    if (city) {
-      return doctor.adrressDoctor === city;
-    }
-    if (language) {
-      return doctor.languagesDoctor.includes(language);
-    }
-    if (gender) {
-      return doctor.genderDoctor === gender;
-    }
-    return filteredDoctors;
-  });
+  return doctors
+    .filter(doctor => {
+      return Object.keys(filterParams).every(key => {
+        if (filterParams[key] === null) {
+          return true;}
+        if (Array.isArray(doctor[key])) {
+          return doctor[key].includes(filterParams[key]);
+        }
+        return filterParams[key] === doctor[key];
+      });
+    })
+    .map(doctor => doctor.idDoctor);
 }
 
 async function getPageUserId() {
@@ -215,8 +209,8 @@ async function getPageUserId() {
 searchButton.addEventListener("click", async () => {
   const params = getQueryParams();
   const filterParams = await getSerchFieldesInfo();
-  console.log(filterParams);
   const listDoctorsIds = await filteredDoctors(filterParams);
+  
   updateSearchResult(listDoctorsIds, params.userId);
 });
 
@@ -245,6 +239,13 @@ async function updateSearchResult(listDoctorsIds, userId) {
         window.location.href = `../PageDoctorAbout/index.html?doctorId=${doctor.idDoctor}&userId=${userId}`;
       });
       doctorsList.appendChild(listItem);
+      doctorsNamesDropdownButton.innerHTML = "<strong>Doctors names</strong>";
+      specialtiesDropdownButton.innerHTML = "<strong>Specialties</strong>";
+      citiesDropdownButton.innerHTML = "<strong>City</strong>";
+      languageDropdownButton.innerHTML = "<strong>Preferred language</strong>";
+      genderDropdownButton.innerHTML = "<strong>Gender</strong>";
+      
+
     } else {
       console.warn(`Doctor with ID ${doctorId} not found`);
     }
