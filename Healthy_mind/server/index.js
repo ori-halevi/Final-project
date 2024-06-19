@@ -126,7 +126,6 @@ app.post("/api/isUserExists", async (req, res) => {
 //by Elkana
 
 app.post("/api/updateAppointments", async (req, res) => {
-  console.log("dsafsdf")
   
   const { date, doctorId, patientId } = req.body;
   try {

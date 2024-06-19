@@ -35,21 +35,15 @@ const User = mongoose.model("users", userSchema);
 
 async function newUserAppointment(userId, appointmentDetails) {
   try {
-    // console.log("Attempting to add new appointment...");
-    // console.log("Doctor ID:", doctorId);
-    // console.log("Appointment details:", appointmentDetails);
+    const ids = new mongoose.Types.ObjectId(appointmentDetails.doctorId)
     const newOb = {
-      doctorId: new mongoose.Types.ObjectId(appointmentDetails.doctorId), 
+      doctorId: ids,
       date: new Date(appointmentDetails.date),
     }
-    console.log("uesr: " + newOb);
     const result = await User.updateOne(
       { _id: userId },
       { $push: { appointments: newOb } }
     );
-
-    // console.log("Result:", result);
-    
     return result.modifiedCount === 1;
   } catch (error) {
     console.error("Error adding new appointment:", error);

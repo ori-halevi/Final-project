@@ -77,22 +77,17 @@ async function updateDoctorName(doctorId, newName) {
   return result.modifiedCount === 1;
 }
 
-const { ObjectId } = require('mongoose').Types;
 async function newDoctorAppointment(doctorId, appointmentDetails) {
   try {
-    const ids = new ObjectId(appointmentDetails.patientId)
+    const ids = new mongoose.Types.ObjectId(appointmentDetails.patientId)
     const newOb = {
       patientId: ids,
       date: new Date(appointmentDetails.date),
     }
-    
-    console.log(newOb);
     const result = await Doctor.updateOne(
       { _id: doctorId },
       { $push: { appointments: newOb } }
     );
-
-    console.log("Result:", result);
     
     return result.modifiedCount === 1;
   } catch (error) {
@@ -100,35 +95,6 @@ async function newDoctorAppointment(doctorId, appointmentDetails) {
     return false;
   }
 }
-
-async function updateDoctor234(){
-  const appointmentDetails = {
-    patientId: new mongoose.Types.ObjectId("60d5ec49f3d2b2a5f0a12345"), // מזהה המטופל
-    date: new Date("2024-07-01T14:00:00Z") // תאריך ושעה של הפגישה
-  };
-//   const appointmentDetails = {
-//     patientId: '6671b6c22848454301c551ea',
-//     date: '2024-06-14T06:00:00.000Z'
-//   };
-  const doctorId = "6671b6c22848454301c551e4"; // מזהה הרופא
-  
-  const success = await newDoctorAppointment(doctorId, appointmentDetails);
-  if (success) {
-    console.log("הפגישה נוספה בהצלחה!");
-  } else {
-    console.log("אירעה שגיאה בעת הוספת הפגישה.");
-  }
-}
-updateDoctor234();
-
-
-
-
-
-
-
-
-
 
 
 async function deleteDoctor(doctorId) {

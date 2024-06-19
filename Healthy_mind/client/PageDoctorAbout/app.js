@@ -147,8 +147,8 @@ function getAppointmentTimeFromUserInput() {
 async function sendAppointmentData() {
   try {
     const date = getAppointmentTimeFromUserInput();
-    const doctorId = await getPageUserId();
-    const patientId = await getPageDoctorId();
+    const patientId = await getPageUserId();
+    const doctorId = await getPageDoctorId();
 
     const data = {
       date,
