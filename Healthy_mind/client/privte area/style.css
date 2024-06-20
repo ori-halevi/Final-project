@@ -1,0 +1,168 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('../RESOURCES/Images/Background/עיצוב\ ללא\ שם.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+    color: #333;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  
+  section {
+    margin-bottom: 30px;
+  }
+  
+  section h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #34495e;
+    border-bottom: 2px solid #0b0788;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  section p, section ul, section blockquote {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.8;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+  }
+  
+  blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 4px solid #1140cb;
+    padding-left: 15px;
+    margin-left: 0;
+    text-align: left;
+  }
+  
+  .address p {
+    font-style: italic;
+    margin: 5px 0;
+  }
+  
+  .doctor-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .clinic-photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  input[type="date"], select {
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  button {
+    font-size: 1em;
+    padding: 10px 20px;
+    background-color: #2711cb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1611b3;
+  }
+  
+  #successPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 255, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  #successPopup p {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .user-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
