@@ -6,7 +6,7 @@
   --font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   --border-color: #ccc;
   --button-padding: 10px 20px;
-  --font-size-large: 180%;
+  --font-size-large: 220%;
   --font-size-medium: 20px;
   --transition-time: 0.3s;
 }
@@ -144,6 +144,9 @@ button:hover {
   display: flex;
   padding: 10px;
   color: var(--secondary-color);
+  box-shadow: #4CAF50 10px;
+ 
+
 } */
 
 #websiteButtons {
@@ -212,10 +215,17 @@ button:hover {
   margin-bottom: 8px;
   box-sizing: border-box;
 }
+body {
+  background-image: url("../RESOURCES/Images/Background/1.jpg"); /* הנתיב לתמונת הרקע */
+  background-size: cover; /* גורם לתמונה לכסות את כל הדף */
+  background-repeat: no-repeat; /* מונע חזרה של התמונה */
+  background-attachment: fixed; /* גורם לרקע להישאר קבוע */
+}
 
 /* Background Images */
 .background-image-1,
 .background-image-2 {
+  
   background-size: cover;
   background-position: center;
   height: 200px;
@@ -366,13 +376,15 @@ button:hover {
 
 a{
   text-decoration: none; /* Remove underline */
-  color: green; /* Custom color */
+  color: white; /* Custom color */
   font-weight: bold; /* Bold text */
   transition: color 0.3s ease; /* Smooth transition for color change */
+  border: #333;
+  
 }
 
 a:hover {
-  color: #0c47a1; 
+  color: lightgreen; 
 }
 .dropdown-button {
   background-color: #4CAF50; /* צבע רקע ירוק */

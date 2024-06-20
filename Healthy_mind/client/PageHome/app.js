@@ -67,7 +67,7 @@ function updatePageToUser(userId, username) {
   });
   showAllDoctors(userId) 
   personalArea.addEventListener("click", () => {
-    window.location.href = "../PersonalArea/index.html"
+    window.location.href = "../PagePrivteArea/index.html"
     })
 }
 

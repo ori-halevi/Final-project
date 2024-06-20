@@ -13,7 +13,7 @@
       <p>You are loguot</p>
     </div>
 
-    <div id="header" class="background-image-1">
+    <div id="header">
       <div id="logoDiv">
         <div>
           <img
@@ -59,11 +59,24 @@
     <div id="content">
       <div id="searchContainer">
         <div>
-          <button id="search-button">
+          <button
+            id="search-button"
+            style="
+              background-color: transparent;
+              color: #000;
+              padding: 10px 10px;
+              border-radius: 50%;
+              font-size: 16px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            "
+            onmouseover="this.style.backgroundColor='rgba(0, 0, 0, 0.1)';"
+            onmouseout="this.style.backgroundColor='transparent';"
+          >
             <img
               src="../RESOURCES/Images/Background/Blue Flat Illustrative Human Artificial Intelligence Technology Logo.png"
               alt=""
-              style="height: 50px; width: 30px"
+              style="height: 60px; width: 60px"
             />
           </button>
         </div>
@@ -225,7 +238,7 @@
       </div>
     </div>
 
-    <div id="footer" class="background-image-2"></div>
+    <div id="footer"></div>
 
     <script src="./app.js"></script>
     <script src="./ui.js"></script>
