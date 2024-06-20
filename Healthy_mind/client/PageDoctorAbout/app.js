@@ -192,10 +192,10 @@ async function getPageUserId() {
 // by Elkana
 submitBtn.addEventListener("click", async function (event) {
   event.preventDefault();
-  if ((await getPageUserId()) === "null") {
+  const userIdHolder = await getPageUserId()
+  if (userIdHolder === "null" || userIdHolder === "undefined") {
     window.alert("you have to login befor update a meeting");
   } else {
-    console.log("asd");
     sendAppointmentData();
     showSuccessPopup();
   }
