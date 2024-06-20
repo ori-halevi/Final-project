@@ -39,7 +39,9 @@ button:hover {
   align-items: flex-end;
   justify-content: space-between;
   padding: 10px 20px;
-  height: 60%;
+  /* height: 60%; */
+  align-items: center;
+
 }
 
 #logoDiv,
@@ -163,7 +165,7 @@ button:hover {
   padding: var(--button-padding);
   font-size: 16px;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .doctorsDropdownCSS button:hover {
@@ -216,7 +218,7 @@ button:hover {
 .background-image-2 {
   background-size: cover;
   background-position: center;
-  height: 250px;
+  height: 200px;
   position: relative;
 }
 
@@ -360,4 +362,128 @@ button:hover {
   font-size: 1em;
   margin: 5px 0;
   text-align: center;
+}
+
+a{
+  text-decoration: none; /* Remove underline */
+  color: green; /* Custom color */
+  font-weight: bold; /* Bold text */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+a:hover {
+  color: #0c47a1; 
+}
+.dropdown-button {
+  background-color: #4CAF50; /* צבע רקע ירוק */
+  color: white; /* צבע טקסט לבן */
+  padding: 15px 20px; /* מרווח פנימי */
+  margin: 10px 0; /* מרווח חיצוני */
+  border: none; /* ללא גבול */
+  cursor: pointer; /* סמן עכבר של יד */
+  width: 100%; /* רוחב מלא */
+  border-radius: 5px; /* פינות מעוגלות */
+  text-align: left; /* יישור טקסט לשמאל */
+  font-size: 16px; /* גודל גופן */
+  transition: background-color 0.3s ease; /* מעבר חלק בצבע רקע */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* צל עדין */
+}
+
+.dropdown-button:hover {
+  background-color: #45a049; /* צבע כהה יותר בעת מעבר */
+}
+
+.dropdown-content {
+  display: none; /* מוסתר כברירת מחדל */
+  position: absolute; /* מיקום מוחלט */
+  background-color: #f9f9f9; /* צבע רקע בהיר */
+  min-width: 200px; /* רוחב מינימלי */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* צל עדין */
+  z-index: 1; /* שכבת ז-אינדקס */
+  margin-top: 5px; /* מרווח עליון */
+  border-radius: 5px; /* פינות מעוגלות */
+}
+
+.dropdown-content .search-box {
+  width: 90%; /* רוחב 90% */
+  padding: 12px; /* מרווח פנימי */
+  margin: 10px; /* מרווח חיצוני */
+  border: 1px solid #ddd; /* גבול בהיר */
+  border-radius: 5px; /* פינות מעוגלות */
+}
+
+.dropdown-content ul {
+  list-style-type: none; /* ללא תבליטים */
+  padding: 0; /* ללא ריפוד */
+  margin: 0; /* ללא מרווח חיצוני */
+}
+
+.dropdown-content ul li {
+  padding: 12px; /* מרווח פנימי */
+  text-align: left; /* יישור לשמאל */
+  border-bottom: 1px solid #ddd; /* גבול תחתון בהיר */
+}
+
+.dropdown-content ul li:hover {
+  background-color: #f1f1f1; /* צבע רקע בהיר בעת מעבר */
+  cursor: pointer; /* סמן עכבר של יד */
+}
+
+.doctorsDropdownCSS {
+  position: relative; /* מיקום יחסי */
+  padding: 1px;
+}
+
+.dropdown-button::after {
+  content: '\25BC'; /* חץ כלפי מטה */
+  float: right; /* מיקום מימין */
+  margin-left: 10px; /* מרווח שמאלי */
+}
+
+.dropdown-button.open::after {
+  content: '\25B2'; /* חץ כלפי מעלה */
+}
+
+.dropdown-button + .dropdown-content {
+  display: none; /* מוסתר כברירת מחדל */
+}
+
+.dropdown-button.open + .dropdown-content {
+  display: block; /* מוצג כאשר הכפתור פתוח */
+}
+#You-are-loguot {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-right: 200px;
+  padding-left:  200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: rgba(97, 171, 185, 0.8); /* צבע רקע ירוק עם שקיפות */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 1000;
+}
+/* סגנונות לתוכן ההודעה */
+#You-are-loguot p {
+  margin: 0;
+  color: lightgreen;
+  font-size: 90px;
+}
+
+.PersonalAreaImgButtonCSS {
+  margin: 20px;
+  width: 100px;  /* רוחב הכפתור */
+  height: 100px; /* גובה הכפתור */
+  border-radius: 20%; /* עיגול הכפתור */
+  /* border: 2px solid var(--primary-color); מסגרת הכפתור */
+  transition: transform var(--transition-time) ease, box-shadow var(--transition-time) ease;
+}
+
+.PersonalAreaImgButtonCSS:hover {
+  transform: scale(1.1); /* הגדלה קלה בהובר */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* הצללה בהובר */
 }

@@ -9,40 +9,69 @@
   </head>
 
   <body>
+    <div id="You-are-loguot">
+      <p>You are loguot</p>
+    </div>
+
     <div id="header" class="background-image-1">
       <div id="logoDiv">
         <div>
           <img
             src="../RESOURCES/Images/logo/logo.png"
             alt="logo"
-            style="height: 250px"
+            style="height: 200px"
           />
         </div>
       </div>
 
       <div id="websiteButtons">
-        <ul id="websiteButtonsList" class="">
-          <li>ABOUT US</li>
+        <ul id="websiteButtonsList">
+          <li><a href="">ABOUT US</a></li>
           <br />
-          <li>ACTIVITIES</li>
+          <li><a href="">ACTIVITIES</a></li>
           <br />
-          <li>SERVICES</li>
+          <li><a href="">SERVICES</a></li>
         </ul>
       </div>
 
       <div id="user-identification" class="horizontal">
-        <button onclick="window.location.href='../PageLogin/index.html'">login</button>
+        <img
+          src="../RESOURCES/Images/Background/logInButton.png"
+          alt=""
+          id="loginImg"
+          class="PersonalAreaImgButtonCSS"
+        />
+        <img
+          src="../RESOURCES/Images/Background/PersonalAreaButton.png"
+          alt=""
+          id="PersonalAreaImg"
+          class="PersonalAreaImgButtonCSS"
+        />
+        <img
+          src="../RESOURCES/Images/Background/logOutButton.png"
+          alt=""
+          id="logOutImg"
+          class="PersonalAreaImgButtonCSS"
+        />
       </div>
     </div>
 
     <div id="content">
       <div id="searchContainer">
         <div>
-          <button id="search-button">Search</button>
+          <button id="search-button">
+            <img
+              src="../RESOURCES/Images/Background/Blue Flat Illustrative Human Artificial Intelligence Technology Logo.png"
+              alt=""
+              style="height: 50px; width: 30px"
+            />
+          </button>
         </div>
         <!-- doctors names dropdown button -->
         <div class="doctors-names-dropdown-main-div doctorsDropdownCSS">
-          <button id="doctors-names-dropdown-button">Doctors names</button>
+          <button id="doctors-names-dropdown-button" class="dropdown-button">
+            Doctors names
+          </button>
           <div
             id="doctors-names-dropdown-suggestions-div"
             class="dropdown-content dropdown-contentCSS"
@@ -63,7 +92,9 @@
 
         <!-- specialties dropdown button -->
         <div class="specialties-dropdown-main-div doctorsDropdownCSS">
-          <button id="specialties-dropdown-button">specialties</button>
+          <button id="specialties-dropdown-button" class="dropdown-button">
+            specialties
+          </button>
           <div
             id="specialties-dropdown-suggestions-div"
             class="dropdown-content dropdown-contentCSS"
@@ -87,7 +118,9 @@
 
         <!-- city dropdown button -->
         <div class="city-dropdown-main-div doctorsDropdownCSS">
-          <button id="city-dropdown-button">city</button>
+          <button id="city-dropdown-button" class="dropdown-button">
+            city
+          </button>
           <div
             id="city-dropdown-suggestions-div"
             class="dropdown-content dropdown-contentCSS"
@@ -108,7 +141,9 @@
 
         <!-- language dropdown button -->
         <div class="language-dropdown-main-div doctorsDropdownCSS">
-          <button id="language-dropdown-button">language</button>
+          <button id="language-dropdown-button" class="dropdown-button">
+            language
+          </button>
           <div
             id="language-dropdown-suggestions-div"
             class="dropdown-content dropdown-contentCSS"
@@ -129,7 +164,9 @@
 
         <!-- gender dropdown button -->
         <div class="gender-dropdown-main-div doctorsDropdownCSS">
-          <button id="doctors-gender-dropdown-button">gender</button>
+          <button id="doctors-gender-dropdown-button" class="dropdown-button">
+            gender
+          </button>
           <div
             id="gender-dropdown-suggestions-div"
             class="dropdown-content dropdown-contentCSS"

@@ -24,11 +24,12 @@ function getQueryParams() {
 document.addEventListener("DOMContentLoaded", async function () {
   const params = await getQueryParams();
   const contentDiv = document.getElementById("content");
+    // const userNameForPersonalArea = document.createElement("B");
   if (params.userId) {
     const userInfo = await fetchUserInfo(params.userId);
     updatePageToUser(params.userId, userInfo.full_name);
   } else {
-    // פעולות נוספות אם אין מזהה משתמש
+    updatePageToGuest();
   }
 });
 
@@ -52,22 +53,51 @@ async function fetchUserInfo(userId) {
 }
 
 // פונקציה זו מעדכנת את הדף למשתמש
+// פונקציה זו מעדכנת את הדף למשתמש
 function updatePageToUser(userId, username) {
-  const loginButton = userIdentification.querySelector("button");
-  loginButton.textContent = username;
-  loginButton.addEventListener("click", () => {
-    window.location.href = `../PersonalArea/index.html?userId=${userId}`;
+  const loginImage = document.getElementById("loginImg")
+  const personalArea = document.getElementById("PersonalAreaImg")
+  const logOutImage = document.getElementById("logOutImg")
+  loginImage.style.display = "none"
+  logOutImage.src = "../RESOURCES/Images/Background/logOutButton.png"
+  logOutImage.addEventListener("click",() => {
+    showYouAreLoguot();
+    window.location.href = "../PageHome/index.html"
+    showAllDoctors(null)
   });
   showAllDoctors(userId) 
+  personalArea.addEventListener("click", () => {
+    window.location.href = "../PersonalArea/index.html"
+    })
 }
-// resert page home
-function resertPageToNull() {
-  const logoutButton = user_LogOut.querySelector("button");
-  logoutButton.textContent = '';
-  logoutButton.addEventListener("click", () => {
-    window.location.href = `../PersonalArea/index.html?userId=${'login'}`;
+
+
+
+function updatePageToGuest(){
+  const loginImage = document.getElementById("loginImg")
+  const personalArea = document.getElementById("PersonalAreaImg")
+  const logOutImage = document.getElementById("logOutImg")
+  loginImage.src = "../RESOURCES/Images/Background/loginButton.png"
+  loginImage.alt = "Sdgdkhgbidfsjh"
+  loginImage.addEventListener("click", () => {
+    window.location.href = "../PageLogin/index.html"
+    showAllDoctors(null)
   });
-  // showAllDoctors(null) 
+  logOutImage.style.display = "none"
+  personalArea.style.display = "none"
+
+}
+
+
+
+function showYouAreLoguot() {
+  const popup = document.getElementById("You-are-loguot");
+  popup.style.display = "block";
+
+  // הסתרת הפופאפ אחרי 3 שניות
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 5000);
 }
 
 // באיחוד פונקציה זו עושה בקשת fetch לשרת כדי לקבל את רשימת הרופאים

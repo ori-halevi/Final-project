@@ -37,13 +37,23 @@ loginButton.addEventListener("click", async (event) => {
       console.log("User exists:", isUserExists);
       goToHomePageAsUser(isUserExists.userId);
     } else {
+      showSuccessPopup()
       console.log("User does not exist");
     }
   } catch (error) {
     console.error("Error during login process:", error);
+
   }
 });
+function showSuccessPopup() {
+  const popup = document.getElementById("successPopup");
+  popup.style.display = "block";
 
+  // הסתרת הפופאפ אחרי 3 שניות
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 3000);
+}
 function goToHomePageAsUser(userId) {
   window.location.href = `../PageHome/index.html?userId=${userId}`;
 }
