@@ -11,6 +11,9 @@ const doctorLocation = document.getElementById("doctor-location");
 const doctorEducation1 = document.getElementById("doctor-education-1");
 const doctorEducation2 = document.getElementById("doctor-education-2");
 const submitBtn = document.getElementById("submit-btn");
+const appointmentDate = document.getElementsByClassName("appointment-date")
+const appointmentTime = document.getElementsByClassName("appointment-time")
+
 // this function get prams from the url
 function getQueryParams() {
   const params = {};
@@ -194,12 +197,19 @@ submitBtn.addEventListener("click", async function (event) {
   event.preventDefault();
   const userIdHolder = await getPageUserId()
   if (userIdHolder === "null" || userIdHolder === "undefined") {
-    window.alert("you have to login befor update a meeting");
+    submitBtn.disabled = true;
+    window.confirm("you have to login befor update a meeting, do you want to?");
+    showSuccessPopup2();
+    setTimeout(() => {
+      window.location.href = "../PageLogin/index.html"
+    }, 1500);
   } else {
     sendAppointmentData();
     showSuccessPopup();
   }
 });
+
+
 
 // פונקציה להצגת חלון הפופאפ
 function showSuccessPopup() {
@@ -210,4 +220,14 @@ function showSuccessPopup() {
   setTimeout(() => {
     popup.style.display = "none";
   }, 3000);
+}
+
+function showSuccessPopup2() {
+  const popup = document.getElementById("successPopup2");
+  popup.style.display = "block";
+
+  // הסתרת הפופאפ אחרי 3 שניות
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 1000);
 }

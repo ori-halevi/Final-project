@@ -155,6 +155,29 @@ button:hover {
     color: white;
     font-size: 20px;
 }
+
+#successPopup2 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-right: 50px;
+    padding-left:  50px;
+    background-color: rgba(0, 255, 0, 0.8); /* צבע רקע ירוק עם שקיפות */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1000;
+}
+/* סגנונות לתוכן ההודעה */
+#successPopup2 p {
+    margin: 0;
+    color: white;
+    font-size: 30px;
+}
+
+
 .home-button {
     position: fixed;
     top: 20px; 
